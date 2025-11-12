@@ -9,9 +9,9 @@
 Chaque nouvelle fonctionnalité se fait sur une **branche dédiée**, puis est mergée dans **main** une fois terminée et testée.
 
 **Exemples :**
-- swann/parser  
+- zahi/parser  
 - name/raycasting  
-- swann/textures  
+- zahi/textures  
 - name/minimap  
 
 ---
