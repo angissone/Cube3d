@@ -24,7 +24,8 @@ Avant de commencer une nouvelle fonctionnalité :
 ```bash
 git checkout main             # se placer sur la branche principale
 git pull origin main          # récupérer la dernière version
-git checkout -b swann/parser
+git checkout -b zahi/parser # creer branche
+git branch # voir toutes les branches 
 ```
 
 ### 💾 Sauvegarder et envoyer son travail  
