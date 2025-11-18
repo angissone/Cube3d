@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/13 11:52:21 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/18 19:56:47 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,6 @@ SRCS = \
   $(SRC_DIR)/math/cub_hit_record.c \
   $(SRC_DIR)/math/cub_convert.c \
   $(SRC_DIR)/math/cub_random.c \
-  $(SRC_DIR)/math/cub_vec4_rnd.c \
   $(SRC_DIR)/get_next_line/get_next_line.c \
   $(SRC_DIR)/get_next_line/get_next_line_utils.c \
   $(SRC_DIR)/parser/cub_parser.c \

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:28:00 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:52:21 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:25:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ typedef struct s_cub	t_cub;
 
 typedef struct s_camera
 {
-	t_vec4	center;
-	t_vec4	axis;
+	t_vec3	center;
+	t_vec3	axis;
 	double	fov_angle;
-	t_vec4	viewport_u;
-	t_vec4	viewport_v;
-	t_vec4	upper_left_corner;
-	t_vec4	pixel00_loc;
-	t_vec4	pixel_delta_u;
-	t_vec4	pixel_delta_v;
+	t_vec3	viewport_u;
+	t_vec3	viewport_v;
+	t_vec3	upper_left_corner;
+	t_vec3	pixel00_loc;
+	t_vec3	pixel_delta_u;
+	t_vec3	pixel_delta_v;
 	int		max_depth;
 }	t_camera;
 

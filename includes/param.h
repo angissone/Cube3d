@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:40:35 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:25:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 // 	t_cub		*m;
 // 	double		a;
 // 	double		b;
-// 	t_vec4		v1;
-// 	t_vec4		v2;
+// 	t_vec3		v1;
+// 	t_vec3		v2;
 // 	double		x;
 // 	double		y;
 // }	t_param;

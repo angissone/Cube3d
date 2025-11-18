@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:46:02 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:58:08 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	parse_cylinder_center(t_cylinder *cylinder, t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_CY_DATA, *m);
 		i++;
 	}
-	cylinder->center.v[3] = V_POINT;
 }
 
 static void	parse_cylinder_axis(t_cylinder *cylinder, t_cub **m, char **tokens)
@@ -77,7 +76,6 @@ static void	parse_cylinder_axis(t_cylinder *cylinder, t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_CY_DATA, *m);
 		i++;
 	}
-	cylinder->axis.v[3] = V_VECTOR;
 }
 
 static void	parse_cylinder_dimensions(t_cylinder *cylinder, char **tokens)

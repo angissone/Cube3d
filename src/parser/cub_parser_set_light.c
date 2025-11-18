@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:46:02 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:58:23 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	parse_light_point(t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_L_DATA, *m);
 		i++;
 	}
-	(*m)->light.point.v[3] = V_POINT;
 }
 
 static void	parse_light_brightness(t_cub **m, char **tokens)

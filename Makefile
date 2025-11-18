@@ -6,13 +6,13 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/14 12:46:13 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/12 15:18:51 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/18 19:08:57 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 MAKE_FLAGS += --no-print-directory
 
-NAME = miniRT
+NAME = cub3D
 
 EXE = ./$(NAME)
 

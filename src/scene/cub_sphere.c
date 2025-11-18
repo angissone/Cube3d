@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:05:37 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:29:58 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ bool	cub_sphere_hit(const t_cub *m, t_param_sphere_hit *_)
 	double	a;
 	double	b;
 	double	c;
-	t_vec4	oc;
+	t_vec3	oc;
 	double	delta;
 	double	t;
-	t_vec4	center;
+	t_vec3	center;
 	double radius;
 
 	center = m->sphere[_->i].center;
 	radius = m->sphere[_->i].radius;
-	oc = vec4_sub (center, _->ray.origin);
+	oc = vec3_sub (center, _->ray.origin);
 	a = vec3_dot(_->ray.dir, _->ray.dir);
 	b = -2 * vec3_dot(_->ray.dir, oc);
 	c = vec3_dot(oc, oc) - radius * radius;
@@ -45,7 +45,7 @@ bool	cub_sphere_hit(const t_cub *m, t_param_sphere_hit *_)
 	_->rec->p = ray_at(_->ray, _->rec->t);
 	// cub_print_vec("p     ", _->rec->p);
 	// cub_print_vec("center", center);
-	set_face_normal(_->ray, vec4_scale(vec4_sub(_->rec->p, center), 1. / radius), _->rec);
+	set_face_normal(_->ray, vec3_scale(vec3_sub(_->rec->p, center), 1. / radius), _->rec);
 	// cub_print_vec("NORMAL", _->rec->normal);
 	// cub_print_var_d("LENGTH", vec3_sqr_length(_->rec->normal));
 	vec3_normalise_color(m->sphere[_->i].color, &_->rec->colorN);

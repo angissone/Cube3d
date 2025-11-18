@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:44:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,19 @@ void	cub_print_var_d(char *s, double n)
 		printf("[%s][%f]\n", s, n);
 }
 
-void	cub_print_vec(char *s, t_vec4 v)
+void	cub_print_vec(char *s, t_vec3 v)
 {
 	if (DEBUG)
-		printf("[%s][%.2f,%.2f,%.2f,%.2f]\n", s, v.v[0], v.v[1], v.v[2], v.v[3]);
+		printf("[%s][%.2f,%.2f,%.2f]\n", s, v.v[0], v.v[1], v.v[2]);
 }
 
-void	cub_print_color(char *s, t_vec4 v)
+void	cub_print_color(char *s, t_vec3 v)
 {
 	if (DEBUG)
-		printf("[%s][%f,%f,%f,%f]\n", s, \
+		printf("[%s][%f,%f,%f]\n", s, \
 			v.v[0] * C_255_999, \
 			v.v[1] * C_255_999, \
-			v.v[2] * C_255_999, \
-			v.v[3] * C_255_999);
+			v.v[2] * C_255_999);
 }
 
 void	cub_debug_camera(t_cub *m)

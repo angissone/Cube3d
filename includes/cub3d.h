@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:54:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 20:04:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "param.h"
 # include "vec3.h"
-# include "vec4.h"
 # include "color.h"
 # include "vertex.h"
 # include "cub.h"
@@ -50,12 +49,12 @@ void		cub_draw_window(t_cub *m);
 void		cub_init(t_cub **m, char *filepath);
 void		cub_render(t_cub *m);
 void		cub_print_var_d(char *s, double n);
-void		cub_print_vec(char *s, t_vec4 v);
+void		cub_print_vec(char *s, t_vec3 v);
 void		cub_debug_camera(t_cub *m);
-//double		cub_hit_sphere(t_vec4 center, double radius, t_ray ray);
+//double		cub_hit_sphere(t_vec3 center, double radius, t_ray ray);
 double		random_double(t_cub *m);
 double		random_double_range(t_cub *m, double min, double max);
-void		cub_print_color(char *s, t_vec4 v);
+void		cub_print_color(char *s, t_vec3 v);
 void		cub_do_hook_key(t_cub *m, int keycode);
 
 

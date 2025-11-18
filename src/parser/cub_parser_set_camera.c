@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:46:02 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:57:46 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ static void	parse_camera_center(t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_C_DATA, *m);
 		i++;
 	}
-	(*m)->camera.center.v[3] = V_POINT;
 }
 
 static void	parse_camera_axis(t_cub **m, char **tokens)
@@ -57,7 +56,6 @@ static void	parse_camera_axis(t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_C_DATA, *m);
 		i++;
 	}
-	(*m)->camera.axis.v[3] = V_VECTOR;
 }
 
 static void	parse_camera_fov(t_cub **m, char **tokens)

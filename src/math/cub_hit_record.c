@@ -6,20 +6,20 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 16:10:04 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:45:14 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_face_normal(t_ray ray, t_vec4 outward_normal, t_hit_record *rec)
+void	set_face_normal(t_ray ray, t_vec3 outward_normal, t_hit_record *rec)
 {
 	rec->front_face = vec3_dot(ray.dir, outward_normal) < 0;
 	if (rec->front_face)
 		rec->normal = outward_normal;
-		//rec->normal = vec4_scale(outward_normal, -1);
+		//rec->normal = vec3_scale(outward_normal, -1);
 	else
-		rec->normal = vec4_scale(outward_normal, -1);
+		rec->normal = vec3_scale(outward_normal, -1);
 }
 
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
@@ -90,12 +90,12 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	else
 		perp_wall_dist = (side_dist_y - delta_dist_y);
 	rec->t = perp_wall_dist;
-	rec->p = vec4_add(r.origin, vec4_scale(r.dir, rec->t));
+	rec->p = vec3_add(r.origin, vec3_scale(r.dir, rec->t));
 
 	if (side == SIDE_0)
-		rec->normal = (t_vec4){ .v = { (r.dir.v[0] > 0) ? -1 : 1, 0, 0, 0 } };
+		rec->normal = (t_vec3){ .v = { (r.dir.v[0] > 0) ? -1 : 1, 0, 0 } };
 	else
-		rec->normal = (t_vec4){ .v = { 0, (r.dir.v[1] > 0) ? -1 : 1, 0, 0 } };
+		rec->normal = (t_vec3){ .v = { 0, (r.dir.v[1] > 0) ? -1 : 1, 0 } };
 
 	rec->front_face = true;
 	rec->colorN = int_to_color(COLOR_BCKGND);

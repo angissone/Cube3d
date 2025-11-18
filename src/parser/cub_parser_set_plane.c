@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:46:02 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:58:36 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static void	parse_plane_point(t_plane *plane, t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_PL_DATA, *m);
 		i++;
 	}
-	plane->point.v[3] = 1;
 }
 
 static void	parse_plane_normal(t_plane *plane, t_cub **m, char **tokens)
@@ -75,7 +74,6 @@ static void	parse_plane_normal(t_plane *plane, t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_PL_DATA, *m);
 		i++;
 	}
-	plane->normal.v[3] = 0;
 }
 
 static void	parse_plane_rgb(t_plane *plane, t_cub **m, char **tokens)

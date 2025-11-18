@@ -6,28 +6,28 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 18:30:50 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 16:02:46 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:42:59 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static t_vec4	learp(float x, t_vec4 v0, t_vec4 v1) // WHY learp AND NOT lerp ?
+static t_vec3	learp(float x, t_vec3 v0, t_vec3 v1) // WHY learp AND NOT lerp ?
 {		// IS IT FOR “linear extrapolation” — I.E., USING X OUTSIDE [0, 1] RANGE?
 	return (
-		vec4_add(
-			vec4_scale(v0, 1 - x),
-			vec4_scale(v1, x)
+		vec3_add(
+			vec3_scale(v0, 1 - x),
+			vec3_scale(v1, x)
 		)
 	);
 }
 
-static	t_vec4	get_bckgnd_color(t_ray ray) // BACKROUND COLOR GRADIANT WITH Y AXIS
+static	t_vec3	get_bckgnd_color(t_ray ray) // BACKROUND COLOR GRADIANT WITH Y AXIS
 {
-	t_vec4	vect_unit;
+	t_vec3	vect_unit;
 	double	a;
-	t_vec4	color_start;
-	t_vec4	color_end;
+	t_vec3	color_start;
+	t_vec3	color_end;
 
 	color_start = int_to_color(COLOR_BCKGND_BOTTOM);
 	//cub_print_vec("v0", color_start);
@@ -41,9 +41,9 @@ static	t_vec4	get_bckgnd_color(t_ray ray) // BACKROUND COLOR GRADIANT WITH Y AXI
 }
 
 // TODO si ray non modifie supprimer le parametre t_ray ray
-t_vec4		ray_color(t_cub *m, const t_ray ray)
+t_vec3		ray_color(t_cub *m, const t_ray ray)
 {
-	t_vec4	color;
+	t_vec3	color;
 	t_hit_record	rec;
 	double shade;
 
@@ -51,7 +51,7 @@ t_vec4		ray_color(t_cub *m, const t_ray ray)
 	if (cub_hit_grid(m, ray, &rec))
 	{
 		shade = 1.0 / (1 + rec.t * SHADE_RATIO);
-		color = vec4_init(shade, shade, shade, 0);
+		color = vec3_init(shade, shade, shade);
 		return (color);
 	}
 	else
@@ -62,24 +62,4 @@ t_vec4		ray_color(t_cub *m, const t_ray ray)
 	}
 	return (color);
 }
-
-// t_vec4	ray_color(t_cub *m, t_ray ray, int depth)
-// {
-// 	t_hit_record rec;
-// 	t_vec4	color;
-
-// 	if (depth <= 0)
-// 		return vec4_init(0, 0, 0, 0); // noir : plus de rebonds
-
-// 	if (cub_hit(m, ray, &rec))
-// 	{
-// 		t_vec4 target_dir = random_on_hemisphere(m, rec.normal);
-// 		t_ray scattered = ray_new(rec.p, target_dir);
-// 		color = vec4_scale(ray_color(m, scattered, depth - 1), 0.5);
-// 	}
-// 	else
-// 		color = get_ray_color(ray);
-
-// 	return color;
-// }
 

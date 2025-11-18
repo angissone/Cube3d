@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:41:29 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:25:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct s_mat4
 	double m[4][4];
 } t_mat4;
 
-t_vec4	mat4_mult_vec4(t_mat4 m, t_vec4 v);
+t_vec3	mat4_mult_vec3(t_mat4 m, t_vec3 v);
 double	degrees_to_radians(double degrees);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 11:46:02 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:56:31 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:59:02 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ static void	parse_sphere_center(t_sphere *sphere, t_cub **m, char **tokens)
 			cub_exit(ERROR_INVALID_SP_DATA, *m);
 		i++;
 	}
-	sphere->center.v[3] = V_POINT;
 }
 
 static void	parse_sphere_radius(t_sphere *sphere, char **tokens)

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 18:41:56 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 14:06:59 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/18 19:25:54 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,22 @@ typedef struct s_param_sphere_hit	t_param_sphere_hit; // CHANGE TO t_param_hit ?
 
 typedef struct s_sphere
 {
-	t_vec4	center;
+	t_vec3	center;
 	double	radius;
 	t_color	color;
 }	t_sphere;
 
 typedef struct s_plane
 {
-	t_vec4	point;
-	t_vec4	normal;
+	t_vec3	point;
+	t_vec3	normal;
 	t_color	color;
 }	t_plane;
 
 typedef struct s_cylinder
 {
-	t_vec4	center;
-	t_vec4	axis;
+	t_vec3	center;
+	t_vec3	axis;
 	double	diameter;
 	double	height;
 	t_color	color;
