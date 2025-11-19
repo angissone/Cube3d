@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 15:44:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:11:23 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,12 @@ typedef struct s_cub
 	char				**map;
 	int					map_width;
 	int					map_height;
+	int					color_floor;
+	int					color_ceiling;
+	double				player_x;
+	double				player_y;
+	double				player_dir_x;
+	double				player_dir_y;
 }	t_cub;
 
 #endif

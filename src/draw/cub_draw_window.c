@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:54:38 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:19:47 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	cub_init_fields_map(t_cub *m)
 {
-	cub_init_camera(m);
+	//cub_init_camera(m);
 	cub_debug_camera(m);
 }
 
@@ -24,8 +24,8 @@ void	cub_draw_window(t_cub *m)
 	if (m->mlx == NULL)
 		cub_exit(ERROR_MLX, m);
 	mlx_get_screen_size(m->mlx, &m->width, &m->height);
-	m->width /=2;
-	m->height /=2;
+	m->width /= SCREEN_RATIO;
+	m->height /= SCREEN_RATIO;
 	m->window = mlx_new_window(m->mlx, m->width, m->height, WINDOW_TITLE);
 	if (m->window == NULL)
 		cub_exit(ERROR_WINDOW, m);

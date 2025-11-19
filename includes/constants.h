@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/19 14:23:25 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 16:10:10 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define SIDE_VERTICAL 0
 # define SIDE_HORIZONTAL 1
 # define SHADE_RATIO 0.05
+# define SCREEN_RATIO 2
 
 #endif

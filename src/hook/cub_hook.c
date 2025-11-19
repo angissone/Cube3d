@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:49:17 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 17:20:11 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	cub_hook_key(int keycode, void *param)
 	if (m->mlx)
 	{
 		cub_do_hook_key(m, keycode);
-		cub_init_camera(m);
+		//cub_init_camera(m);
 	}
 	return (0);
 }

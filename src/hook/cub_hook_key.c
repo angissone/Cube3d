@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/13 11:55:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:52:24 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	cub_do_hook_key(t_cub *m, int keycode)
 	if (keycode == XK_Escape)
 		mlx_loop_end(m->mlx);
 	if (keycode == XK_a || keycode == XK_Left)
-		m->camera.center.v[0] -= MOVE_STEP;
+		m->player_x -= MOVE_STEP;
 	if (keycode == XK_d || keycode == XK_Right)
-		m->camera.center.v[0] += MOVE_STEP;
+		m->player_x += MOVE_STEP;
 	if (keycode == XK_w || keycode == XK_Up)
-		m->camera.center.v[1] -= MOVE_STEP;
+		m->player_y -= MOVE_STEP;
 	if (keycode == XK_s || keycode == XK_Down)
-		m->camera.center.v[1] += MOVE_STEP;
+		m->player_y += MOVE_STEP;
 	if (keycode == XK_q)
 		m->camera.center.v[2] -= MOVE_STEP;
 	if (keycode == XK_e)
