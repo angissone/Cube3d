@@ -49,6 +49,7 @@ void	cub_init(t_cub **m, char *filepath)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m);
 	cub_init_texture(*m);
-	cub_parser(m, filepath);
+	(void)filepath;
+	//cub_parser(m, filepath);
 	//vec3_normalise_color((*m)->ambient.color, &(*m)->ambient.colorN);
 }

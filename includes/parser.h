@@ -18,7 +18,6 @@
 # include "get_next_line.h"
 # include <stdbool.h> // !@#$!! Pourquoi n'est il pas vu de cub3d.h ? !@#$!!
 
-void	cub_parser(t_cub **m, char *filepath);
 void	set_ambient_light(t_cub **m, char **tokens);
 void	set_camera(t_cub **m, char **tokens);
 void	set_light(t_cub **m, char **tokens);

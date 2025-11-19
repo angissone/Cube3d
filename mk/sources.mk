@@ -77,13 +77,5 @@ SRCS = \
   $(SRC_DIR)/math/cub_random.c \
   $(SRC_DIR)/get_next_line/get_next_line.c \
   $(SRC_DIR)/get_next_line/get_next_line_utils.c \
-  $(SRC_DIR)/parser/cub_parser.c \
-  $(SRC_DIR)/parser/cub_parser_utils.c \
-  $(SRC_DIR)/parser/cub_parser_set_ambiant_light.c \
-  $(SRC_DIR)/parser/cub_parser_set_camera.c \
-  $(SRC_DIR)/parser/cub_parser_set_cylinder.c \
-  $(SRC_DIR)/parser/cub_parser_set_light.c \
-  $(SRC_DIR)/parser/cub_parser_set_plane.c \
-  $(SRC_DIR)/parser/cub_parser_set_sphere.c \
   $(SRC_DIR)/hook/cub_hook_key.c \
   $(SRC_DIR)/init/cub_init_texture.c \

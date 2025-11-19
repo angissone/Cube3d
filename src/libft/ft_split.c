@@ -105,10 +105,8 @@ static int	ft_do_split(char const *s, char c, char **split, size_t len)
 char	**ft_split(char const *s, char c)
 {
 	size_t	len;
-	size_t	n;
 	char	**split;
 
-	n = 0;
 	len = ft_count_words(s, c);
 	split = malloc((len + 1) * sizeof(char *));
 	if (split == NULL)

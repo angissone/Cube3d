@@ -27,7 +27,16 @@ static	void	cub_draw_v_wall(t_cub *m, int x)
 	while (y < draw_begin)
 		cub_putpixel(m, x, y++, m->color_ceiling);
 	while (y < draw_end)
-		cub_putpixel(m, x, y++, 0xff0000);
+	{
+		int col =  0xff00ff;
+		if (m->rec.face == FACE_NORTH)
+			col = 0xff0000;
+		if (m->rec.face == FACE_EAST)
+			col = 0x008000;
+		if (m->rec.face == FACE_WEST)
+			col = 0x000080;
+		cub_putpixel(m, x, y++, col);
+	}
 	while (y < m->height)
 		cub_putpixel(m, x, y++, m->color_floor);
 }
