@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/18 19:56:47 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/19 15:41:56 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,6 @@ SRCS = \
   $(SRC_DIR)/color/cub_color.c \
   $(SRC_DIR)/debug/cub_debug.c \
   $(SRC_DIR)/color/cub_convert_color.c \
-  $(SRC_DIR)/scene/cub_sphere.c \
   $(SRC_DIR)/math/cub_hit_record.c \
   $(SRC_DIR)/math/cub_convert.c \
   $(SRC_DIR)/math/cub_random.c \
@@ -86,6 +85,5 @@ SRCS = \
   $(SRC_DIR)/parser/cub_parser_set_light.c \
   $(SRC_DIR)/parser/cub_parser_set_plane.c \
   $(SRC_DIR)/parser/cub_parser_set_sphere.c \
-  $(SRC_DIR)/scene/cub_plane.c \
   $(SRC_DIR)/hook/cub_hook_key.c \
-
+  $(SRC_DIR)/init/cub_init_texture.c \

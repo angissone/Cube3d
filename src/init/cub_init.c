@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/17 20:12:26 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/19 15:47:53 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ void	cub_basic_init(t_cub **m)
 	(*m)->map = map;
 }
 
+
+
+
 void	cub_init(t_cub **m, char *filepath)
 {
 	*m = ft_calloc(1, sizeof(t_cub));
 	if (*m == NULL)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m);
+	cub_init_texture(*m);
 	cub_parser(m, filepath);
-	vec3_normalise_color((*m)->ambient.color, &(*m)->ambient.colorN);
+	//vec3_normalise_color((*m)->ambient.color, &(*m)->ambient.colorN);
 }
