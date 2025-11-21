@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 19:10:24 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/21 13:44:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	cub_print_var_d(char *s, double n)
 {
 	if (DEBUG)
-		printf("[%s][%f]\n", s, n);
+		printf("[%s][%7f]\n", s, n);
 }
 
 void	cub_print_vec(char *s, t_vec3 v)

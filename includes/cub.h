@@ -6,12 +6,12 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 18:54:38 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/21 14:09:42 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MRT_H
-# define MRT_H
+#ifndef CUB_H
+# define CUB_H
 
 # include "ray.h"
 # include "camera.h"

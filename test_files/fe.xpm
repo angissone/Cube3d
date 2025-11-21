@@ -1,6 +1,6 @@
 static char * east_xpm[] = {
 "4 4 2 1",
-"  c #FF0000",
+"  c #d9ff00",
 ". c #0000FF",
 "    ",
 " .. ",
