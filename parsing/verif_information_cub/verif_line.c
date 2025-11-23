@@ -1,7 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+#include "parsing.h"
 
 int ft_strlen(char *str)
 {
@@ -10,7 +7,7 @@ int ft_strlen(char *str)
 		i++;
 	return(i);
 }
-int verif_start(char *str)
+char *verif_start(char *str)
 {
 	int i = 0;
 	int len;
@@ -18,12 +15,13 @@ int verif_start(char *str)
 	while(str[i] && (str[i] == ' ' || str[i] == '\t'))
 		i++;
 	if(i == len)
-		return(-1);
-	return(i);
+		return(NULL);
+	return(str);
 }
 
 int what_info(char *str, int *who_info, int i)
 {
+	i = cut_space(str, &i);
 	if(str[i] && str[i + 1])
 	{
 		if(str[i] == 'N' && str[i + 1] == 'O')
@@ -54,10 +52,6 @@ char *verif_line(char *line, int *who_info, int *index_start)
 {
 	int i = 0;
 	*who_info = 0;
-	if(!line)
-		return(NULL);
-	if ((i = verif_start(line)) == -1 )
-		return(NULL);
 	if(what_info(line, who_info, i) == -1)
 		return(NULL);
 	 *index_start = i ;
