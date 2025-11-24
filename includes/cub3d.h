@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 18:08:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/24 21:54:05 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ double		random_double_range(t_cub *m, double min, double max);
 void		cub_print_color(char *s, t_vec3 v);
 void		cub_do_hook_key(t_cub *m, int keycode);
 void		cub_init_texture(t_cub *m);
+void		cub_do_hook_mouse(t_cub *m, int x, int y);
 
 #endif

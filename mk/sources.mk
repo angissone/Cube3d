@@ -6,11 +6,11 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/19 15:41:56 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/24 22:14:16 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = \
+SRCS_COMMON = \
   $(SRC_DIR)/main.c \
   $(SRC_DIR)/libft/ft_atod.c \
   $(SRC_DIR)/libft/ft_atoi.c \
@@ -79,3 +79,9 @@ SRCS = \
   $(SRC_DIR)/get_next_line/get_next_line_utils.c \
   $(SRC_DIR)/hook/cub_hook_key.c \
   $(SRC_DIR)/init/cub_init_texture.c \
+
+SRCS_NO_BONUS = \
+  $(SRC_DIR)/hook/cub_hook_mouse.c \
+
+SRCS_BONUS = \
+  $(SRC_DIR)/hook/cub_hook_mouse_bonus.c \

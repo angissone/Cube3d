@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 18:16:22 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/24 19:08:14 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONSTANTS_H
 
 # define DEBUG 1
+
 // # define FALSE 0 // type int replaced by more explicit type bool true/false
 // # define TRUE 1 // type int replaced by more explicit type bool true/false
 # define ERROR_MLX "Error CUB: Can not instantiate mlx.\n"

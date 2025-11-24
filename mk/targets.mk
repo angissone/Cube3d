@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 14:28:42 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/13 13:24:31 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/24 22:05:40 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,9 @@ TEST_FILE_4 = test_files/V4.rt
 4:
 	clear && make && $(EXE) $(TEST_FILE_4)
 
+b:
+	clear && make bonus && $(EXE) $(TEST_FILE_4)
+
 vg:
 	clear && make && \
   valgrind \
@@ -45,16 +48,6 @@ vg:
   --track-fds=yes \
   $(EXE) $(TEST_FILE_0)
 
-vg_nel:
-	clear && make && \
-  valgrind \
-  --leak-check=full \
-  --show-leak-kinds=all \
-  --track-origins=yes \
-  --trace-children=yes \
-  --track-fds=yes \
-  $(EXE) $$FILE
-
 git:
 	git pull && git add $(shell find . -type f \( -name "*.c" -o -name "*.h" \) \
   -not -path "./test2/*" \
@@ -64,4 +57,4 @@ git:
   test_files/* \
   && git commit -m "$(m)" && git push
 
-.PHONY: all clean fclean re 0 1 2 3 4 debug asan vg vg_nel git
+.PHONY: all bonus clean fclean re 0 1 2 3 4 debug asan vg  git
