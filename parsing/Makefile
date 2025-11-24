@@ -16,7 +16,9 @@ SRCS := \
 	verif_information_cub/verif_color/take_info_color.c \
 	verif_information_cub/verif_map/check_map.c \
 	verif_information_cub/verif_map/list_chaine.c \
-	verif_information_cub/verif_map/take_info_map.c
+	verif_information_cub/verif_map/take_info_map.c \
+	tableau_map/divers_map.c \
+	tableau_map/map_tableau.c
 
 # Les .o correspondants (même dossier que le .c)
 OBJS := $(SRCS:.c=.o)

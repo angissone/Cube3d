@@ -10,6 +10,13 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>
+
+typedef struct s_node
+{
+    char *line;
+    struct s_node *next;
+}   t_node;
+
 typedef struct s_info_cub
 {
 	char *nort_texture;
@@ -18,15 +25,13 @@ typedef struct s_info_cub
 	char *east_texture;
 	int floor_color[3];
 	int ceiling_color[3];
+	t_node  *liste_map;
 	char **map;
 	int cmp_info;
+	int nbr_line_tab;
 }	t_info_cub;
 
-typedef struct s_node
-{
-    char *line;
-    struct s_node *next;
-}   t_node;
+
 
 
 
@@ -42,7 +47,7 @@ void last_verif(t_info_cub *t_info_line);
 
 
 
-/*verif_colo*/
+/*verif_color*/
 void take_info_color(char *line, int *who_info, int *index_start, t_info_cub *t_info_line);// renvoie le nom du fichier sans espace en trop avant et apres verifie si il souvre
 void verif_empty_color(char *line, int *index_start, int *who_info, t_info_cub *t_info_line);
 
@@ -52,14 +57,28 @@ int cut_space(char *str, int *index_start);
 char *verif_empty_file(char *line, int *index_start);
 void take_info_file(char **line, int *who_info, int *index_start, t_info_cub *t_info_line);// renvoie le nom du fichier sans espace en trop avant et apres verifie si il souvre
 
-/*map*/
+/*verif_map*/
 int check_map(char *line, t_node **list_map);
+
+/*liste chainee*/
+int len_line_i(t_node **list_map, int which_line);
 void new_value(char *new_line, t_node **list_map);
+void printf_liste(t_node **list_map);
+char *return_line_i_to_liste(t_node **list_map, int which_line);
+void free_list(t_node *lst);
+
+/*tableau de map*/
+void take_in_table(t_node **liste_map, t_info_cub *t_info_line);
 
 /*exit*/
 void exit_prog(char *str, t_info_cub *t_info_line);
 
 /*divers*/
 void print_struct(t_info_cub *t_info_line);
+int ft_strlen(char *str);
+
+/*divers_map*/
+void print_tab(char **tab);
+void free_tab(char **tab);
 
 #endif

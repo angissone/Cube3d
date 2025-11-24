@@ -1,6 +1,21 @@
 #include "parsing.h"
 
-
+int len_line_i(t_node **list_map, int which_line)
+{
+    int z = 0;
+    t_node *tmp;
+    tmp = *list_map;
+    if (!list_map || !(*list_map))
+        return (-1);
+    while(tmp != NULL)
+    {
+        if(z == which_line)
+            return(ft_strlen(tmp->line));
+        tmp = tmp->next;
+        z++;
+    }
+    return(-1);
+}
 void new_value(char *new_line, t_node **list_map)
 {
     t_node *new;
@@ -9,7 +24,7 @@ void new_value(char *new_line, t_node **list_map)
     new = malloc(sizeof(t_node));
     if (!new)
         return;
-    new->line = new_line;
+    new->line = ft_strdup(new_line);
     new->next = NULL;
     if (*list_map == NULL)
     {
@@ -20,4 +35,42 @@ void new_value(char *new_line, t_node **list_map)
     while (tmp->next != NULL)
         tmp = tmp->next;
     tmp->next = new;
+}
+
+void printf_liste(t_node **list_map)
+{
+    t_node *tmp;
+    tmp = *list_map;
+
+    while(tmp != NULL)
+    {
+        printf("liste chaine ligne = %s\n", tmp->line);
+        tmp = tmp->next;
+    }
+}
+char *return_line_i_to_liste(t_node **list_map, int which_line)
+{
+    int z = 0;
+    t_node *tmp;
+    tmp = *list_map;
+    if (!list_map || !(*list_map))
+        return (NULL);
+    while(z < which_line)
+    {
+        tmp = tmp->next;
+        z++;
+    }
+    return(tmp->line);
+}
+void free_list(t_node *lst)
+{
+    t_node *tmp;
+
+    while (lst)
+    {
+        tmp = lst->next;
+        free(lst->line);
+        free(lst);
+        lst = tmp;
+    }
 }

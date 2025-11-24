@@ -11,6 +11,7 @@ void print_struct(t_info_cub *t_info_line)
 	printf("C: %d,", t_info_line->ceiling_color[0]);
 	printf("%d,", t_info_line->ceiling_color[1]);
 	printf("%d\n", t_info_line->ceiling_color[2]);
+	print_tab(t_info_line->map);
 }
 
 char	*ft_strdup(char *s)
@@ -19,6 +20,8 @@ char	*ft_strdup(char *s)
 	char	*tab;
 
 	i = 0;
+	if(!s)
+		return(NULL);
 	while (s[i])
 		i++;
 	tab = malloc((i + 1) * sizeof(char));
@@ -34,7 +37,6 @@ char	*ft_strdup(char *s)
 		i++;
 	}
 	tab[i] = '\0';
-	//free(s);
 	return (tab);
 }
 
@@ -72,7 +74,6 @@ int	parsing(char *fichier_cub)
 	char *line = NULL;
 	char *line_tmp = NULL;
 	t_info_cub t_info_line;
-	t_node *liste_map = NULL;
 	init_t_info_line(&t_info_line);
 
 	fd = open(fichier_cub, O_RDONLY);
@@ -116,18 +117,20 @@ int	parsing(char *fichier_cub)
 					free(line);
 					exit_prog("Nombre  ou ordre d information incorrect", &t_info_line);
 				}
-				if(check_map(line,&liste_map) == -1)
+				if(check_map(line,&t_info_line.liste_map) == -1)
 				{
 					free(line);
 					exit_prog("Map non conforme", &t_info_line);
 				}
-				new_value(line, &liste_map);
+				new_value(line, &t_info_line.liste_map);
 				t_info_line.cmp_info++;
+				t_info_line.nbr_line_tab++;
 		}
 		free(line);
 	}
 	close(fd);
-
+	//printf_liste(&t_info_line.liste_map);
+	take_in_table(&t_info_line.liste_map, &t_info_line);
 	last_verif(&t_info_line);
 	print_struct(&t_info_line);
 	exit_prog("fin propre du prog donc c carre le S", &t_info_line);
