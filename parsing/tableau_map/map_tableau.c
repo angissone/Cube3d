@@ -1,24 +1,38 @@
-#include "parsing.h"
-#define MAP (t_info_line->map)
-#define NBR_LINE (t_info_line->nbr_line_tab)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_tableau.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
+/*   Updated: 2025/11/24 16:35:53 by zmata            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void take_in_table(t_node **liste_map, t_info_cub *t_info_line)
+#include "parsing.h"
+
+void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 {
-	int which_line = 0;
-	MAP = malloc((NBR_LINE + 1) * sizeof(char*));
-	if(!MAP)
+	int	which_line;
+
+	which_line = 0;
+	t_info_line->map = malloc((t_info_line->nbr_line_tab + 1) * sizeof(char *));
+	if (!t_info_line->map)
 	{
-		free(MAP);
+		free(t_info_line->map);
 		exit_prog("Probleme de malloc du double tabelau", t_info_line);
 	}
-	MAP[NBR_LINE] = NULL;
-	while(which_line < NBR_LINE)
+	t_info_line->map[t_info_line->nbr_line_tab] = NULL;
+	while (which_line < t_info_line->nbr_line_tab)
 	{
-		MAP[which_line] = ft_strdup(return_line_i_to_liste(liste_map, which_line));
-		if(!MAP[which_line])
+		t_info_line->map[which_line] = ft_strdup(
+				return_line_i_to_liste(liste_map, which_line));
+		if (!t_info_line->map[which_line])
 		{
-		free_tab(MAP);
-		exit_prog("Probleme de malloc de map d une ligne du  double tableau", t_info_line);
+			free_tab(t_info_line->map);
+			exit_prog("Probleme de malloc de map d une ligne du"
+				" double tableau", t_info_line);
 		}
 		which_line++;
 	}
