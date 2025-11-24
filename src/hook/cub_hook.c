@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:49:17 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 16:23:08 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/24 18:16:27 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,29 @@ int	cub_hook_key(int keycode, void *param)
 	t_cub	*m;
 
 	m = (t_cub *)param;
-
 	if (m->mlx)
 	{
 		cub_do_hook_key(m, keycode);
-		//cub_init_camera(m);
 	}
 	return (0);
 }
 
-int	cub_mouse_hook(int buton, int x, int y, void *param)
+int	cub_mouse_hook(int x, int y, void *param)
 {
-	// TODO
-	(void) buton;
-	(void) x;
-	(void) y;
-	(void) param;
+	t_cub	*m;
+	int		dx;
 
+	(void) y;
+	m = (t_cub *)param;
+	if (m->mlx)
+	{
+	 	 if (x != m->mouse.x)
+		 {
+			dx = x - m->mouse.x;
+			m->player_dir = cub_rotate_xy(m, m->player_dir, ANGLE_MOUSE * dx);
+			m->mouse.x = x;
+		 }
+	}
 	return (0);
 }
 

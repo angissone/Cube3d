@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 16:16:56 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/24 18:08:22 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 # include <X11/keysym.h>
 
 int			cub_render_hook(void *param);
-int			cub_mouse_hook(int buton, int x, int y, void *param);
+int			cub_mouse_hook(/*int buton,*/ int x, int y, void *param);
 int			cub_close_window(void *param);
 int			cub_hook_key(int keycode, void *param);
 void		cub_putpixel(t_cub *m, int x, int y, int color);

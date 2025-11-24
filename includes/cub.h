@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 14:09:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/24 17:58:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,12 @@ typedef struct s_cub
 	int					color_floor;
 	int					color_ceiling;
 	t_vec2				player;
-	// double				player_x;
-	// double				player_y;
 	t_vec2				player_dir;
-	// double				player_dir_x;
-	// double				player_dir_y;
 	char				*file_texture[4];
 	t_vec2				player_start;
-	// double				player_x_start;
-	// double				player_y_start;
 	char				player_dir_start;
 	t_img				texture[4];
+	t_vec2				mouse;
 }	t_cub;
 
 #endif
