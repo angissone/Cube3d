@@ -6,62 +6,82 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 19:14:43 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:39:38 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+// static void	set_step_side_dist \
+// 	(const t_ray r, t_vec2 delta_dist, t_vec2	step, t_vec2 side_dist)
+// {
+
+// 	if(r.dir.x < 0)
+// 	{
+// 		step.x = -1;
+// 		side_dist.x = (r.origin.x - _.col) * delta_dist.x;
+// 	}
+// 	else
+// 	{
+// 		step.x = 1;
+// 		side_dist.x = (_.col + 1.0 - r.origin.x) * delta_dist.x;
+// 	}
+// 	if (r.dir.y < 0)
+// 	{
+// 		step.y = -1;
+// 		side_dist.y = (r.origin.y - _.lig) * delta_dist.y;
+// 	}
+// 	else
+// 	{
+// 		step.y = 1;
+// 		side_dist.y = (_.lig + 1.0 - r.origin.y) * delta_dist.y;
+// 	}
+// }
+
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 {
-	int 	col;
-	int 	lig;
-	double	delta_dist_x;
-	double	delta_dist_y;
+	t_dim2	_;
+	t_vec2	delta_dist;
 	t_vec2	step;
-	// int		step_x;
-	// int		step_y;
-	double	side_dist_x;
-	double	side_dist_y;
+	t_vec2	side_dist;
 	int		side;
 
-	//cub_print_var_d("mw", m->map_width);
-	col = (int) r.origin.x;
-	lig = (int) r.origin.y;
+	_.col = (int) r.origin.x;
+	_.lig = (int) r.origin.y;
 	if (r.dir.x)
-		delta_dist_x = fabs(1.0 / r.dir.x);
+		delta_dist.x = fabs(1.0 / r.dir.x);
 	else
-		delta_dist_x = MAX_DOUBLE;
+		delta_dist.x = MAX_DOUBLE;
 	if (r.dir.y)
-		delta_dist_y = fabs(1.0 / r.dir.y);
+		delta_dist.y = fabs(1.0 / r.dir.y);
 	else
-		delta_dist_y = MAX_DOUBLE;
+		delta_dist.y = MAX_DOUBLE;
 	if(r.dir.x < 0)
 	{
 		step.x = -1;
-		side_dist_x = (r.origin.x - col) * delta_dist_x;
+		side_dist.x = (r.origin.x - _.col) * delta_dist.x;
 	}
 	else
 	{
 		step.x = 1;
-		side_dist_x = (col + 1.0 - r.origin.x) * delta_dist_x;
+		side_dist.x = (_.col + 1.0 - r.origin.x) * delta_dist.x;
 	}
 	if (r.dir.y < 0)
 	{
 		step.y = -1;
-		side_dist_y = (r.origin.y - lig) * delta_dist_y;
+		side_dist.y = (r.origin.y - _.lig) * delta_dist.y;
 	}
 	else
 	{
 		step.y = 1;
-		side_dist_y = (lig + 1.0 - r.origin.y) * delta_dist_y;
+		side_dist.y = (_.lig + 1.0 - r.origin.y) * delta_dist.y;
 	}
 	while (1)
 	{
-		if (side_dist_x < side_dist_y)
+		if (side_dist.x < side_dist.y)
 		{
-			side_dist_x += delta_dist_x;
-			col += step.x;
+			side_dist.x += delta_dist.x;
+			_.col += step.x;
 			side = SIDE_VERTICAL;
 			if (step.x == 1)
 				rec->face = FACE_EAST;
@@ -70,23 +90,23 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		}
 		else
 		{
-			side_dist_y += delta_dist_y;
-			lig += step.y;
+			side_dist.y += delta_dist.y;
+			_.lig += step.y;
 			side = SIDE_HORIZONTAL;
 			if (step.y == 1)
 				rec->face = FACE_NORTH;
 			else
 				rec->face = FACE_SOUTH;
 		}
-		if (col < 0 || col >= m->map_width || lig < 0 || lig >= m->map_height)
+		if (_.col < 0 || _.col >= m->map_width || _.lig < 0 || _.lig >= m->map_height)
 			return false;
-		if (m->map[lig][col] == CHAR_1)
+		if (m->map[_.lig][_.col] == CHAR_1)
 			break;
 	}
 	if (side == SIDE_VERTICAL)
-		rec->t = (side_dist_x - delta_dist_x);
+		rec->t = (side_dist.x - delta_dist.x);
 	else
-		rec->t = (side_dist_y - delta_dist_y);
+		rec->t = (side_dist.y - delta_dist.y);
 	rec->p = vec3_add(r.origin, vec3_scale(r.dir, rec->t));
 
 	if (side == SIDE_VERTICAL)
