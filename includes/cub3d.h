@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 16:48:46 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:47:08 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include "camera.h"
 # include "interval.h"
 # include "parser.h"
+# include "cub_hit_record.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
