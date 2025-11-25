@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/25 20:57:40 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 20:58:12 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,26 +51,6 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		t.delta_dist.y = fabs(1.0 / r.dir.y);
 	else
 		t.delta_dist.y = MAX_DOUBLE;
-	// if(r.dir.x < 0)
-	// {
-	// 	t.step.x = -1;
-	// 	t.side_dist.x = (r.origin.x - t.col) * t.delta_dist.x;
-	// }
-	// else
-	// {
-	// 	t.step.x = 1;
-	// 	t.side_dist.x = (t.col + 1.0 - r.origin.x) * t.delta_dist.x;
-	// }
-	// if (r.dir.y < 0)
-	// {
-	// 	t.step.y = -1;
-	// 	t.side_dist.y = (r.origin.y - t.lig) * t.delta_dist.y;
-	// }
-	// else
-	// {
-	// 	t.step.y = 1;
-	// 	t.side_dist.y = (t.lig + 1.0 - r.origin.y) * t.delta_dist.y;
-	// }
 	set_step_side_dist(&r, &t);
 	while (1)
 	{
