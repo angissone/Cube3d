@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 18:28:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:05:58 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,21 +92,8 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		rec->texture_x = m->texture->w * (rec->p.y - floor(rec->p.y));
 	else
 		rec->texture_x = m->texture->w * (rec->p.x - floor(rec->p.x));
-	// cub_print_var_d("x", rec->p.y - floor(rec->p.y));
-	// cub_print_var_d("rec->texture_x ", rec->texture_x );
-
-	// double wall_x;
-	// if (side == SIDE_VERTICAL)
-	// 	wall_x = rec->p.y - floor(rec->p.y);
-	// else
-	// 	wall_x = rec->p.x - floor(rec->p.x);
-	// // inversion si nécessaire
-	// if ((side == SIDE_VERTICAL && r.dir.x > 0) || (side == SIDE_HORIZONTAL && r.dir.y < 0))
-	// 	wall_x = 1.0 - wall_x;
-	// rec->texture_x = (int)(wall_x * m->texture->w);
-
-		// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
-		// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
+	// if ( (side==0 && r.dir.x>0) || (side==1 && r.dir.y<0) )
+	// 	rec->texture_x  = m->texture->w - rec->texture_x - 1;
 
 	// //cub_print_var_d("x", 1);
 	return true;

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 17:59:29 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 18:59:57 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 void	cub_basic_init(t_cub **m)
 {
-	int	angle;
+	int		angle;
+	char	**map;
+	int		y;
 
-	char **map = ft_calloc(5 + 1, sizeof(char *));
-	for (int y = 0; y < 5; y++)
-		map[y] = ft_calloc(5 + 1 , sizeof(char));
+	map = ft_calloc(5 + 1, sizeof(char *));
+	y = 0;
+	while (y < 5)
+		map[y++] = ft_calloc(5 + 1, sizeof(char));
 	map[0][0] = '1'; map[0][1] = '1'; map[0][2] = '1'; map[0][3] = '1'; map[0][4] = '1';
 	map[1][0] = '1'; map[1][1] = '0'; map[1][2] = '0'; map[1][3] = '1'; map[1][4] = '1';
 	map[2][0] = '1'; map[2][1] = '0'; map[2][2] = '0'; map[2][3] = '0'; map[2][4] = '1';
@@ -31,8 +34,6 @@ void	cub_basic_init(t_cub **m)
 	(*m)->color_floor = 0x008000;
 	angle = 90;
 	(*m)->camera.fov_angle = angle;
-	// (*m)->camera.tan_fov = tan(degrees_to_radians(angle / 2));
-	cub_print_var_d("tan", (*m)->camera.tan_fov);
 	(*m)->player.x = 2;
 	(*m)->player.y = 2;
 	(*m)->player_dir.x = 0;
@@ -43,9 +44,6 @@ void	cub_basic_init(t_cub **m)
 	(*m)->file_texture[FACE_EAST] = "test_files/fe.xpm";
 }
 
-
-
-
 void	cub_init(t_cub **m, char *filepath)
 {
 	*m = ft_calloc(1, sizeof(t_cub));
@@ -54,5 +52,4 @@ void	cub_init(t_cub **m, char *filepath)
 	cub_basic_init(m);
 	(void)filepath;
 	//cub_parser(m, filepath);
-	//vec3_normalise_color((*m)->ambient.color, &(*m)->ambient.colorN);
 }

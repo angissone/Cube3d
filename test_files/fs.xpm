@@ -2,6 +2,7 @@ static char * east_xpm[] = {
 "4 4 6 1",
 "  c #d9ff00",
 ". c #0000FF",
+/*SUD*/
 "A c #ff0000",
 "B c #000000",
 "C c #ff00FF",

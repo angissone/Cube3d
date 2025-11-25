@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 19:08:14 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 18:44:26 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define PI 3.14159265358979323846
 # define CAMERA_MAX_DEPTH 10
 # define VERY_LITTLE 0.001f
-# define EPSILON 1e-6 // TO CHECK IF VECTOR ARE PARALLEL (IF SCALAR PRODUCT = 0)
-						// A REGROUPER AVEC VERY_LITTLE ?
+# define EPSILON 1e-6
 # define V_POINT 0
 # define V_VECTOR 1
 # define MOVE_STEP .05

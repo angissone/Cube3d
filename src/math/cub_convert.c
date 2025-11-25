@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:06:38 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 14:43:33 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 18:45:48 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	cub_move_forward(t_vec2 *p, t_vec2 dir, double step)
 
 void	cub_move_side(t_vec2 *p, t_vec2 dir, double step)
 {
-	t_vec2 side;
+	t_vec2	side;
 
 	side.x = -dir.y;
 	side.y = dir.x;
@@ -49,6 +49,6 @@ void	cub_move_side(t_vec2 *p, t_vec2 dir, double step)
 double	cub_div(double x, double y)
 {
 	if (y == 0)
-		y = 0.001;
+		y = EPSILON;
 	return (x / y);
 }
