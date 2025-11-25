@@ -6,12 +6,12 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 21:54:05 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:48:46 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINI_RT_H
-# define MINI_RT_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 # include "param.h"
 # include "vec3.h"

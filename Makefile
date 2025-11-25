@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/14 12:46:13 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/24 22:34:24 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/25 16:59:26 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ MAKE_FLAGS += --no-print-directory
 
 NAME = cub3D
 NAME_BONUS = cub3D_bonus
+
+EXE = ./$(NAME)
+EXE_BONUS = ./$(NAME_BONUS)
 
 SRC_DIR = src
 INC_DIR = includes
@@ -37,34 +40,28 @@ ASAN_FLAGS   = -g -O0 -fsanitize=address,undefined -fno-omit-frame-pointer
 include mk/sources.mk
 include mk/includes.mk
 
-# SRCS et OBJS définis pour chaque mode
 SRCS_NO_BONUS := $(SRCS_COMMON) $(SRCS_NO_BONUS)
 OBJS_NO_BONUS := $(SRCS_NO_BONUS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 SRCS_BONUS_MODE := $(SRCS_COMMON) $(SRCS_BONUS)
 OBJS_BONUS := $(SRCS_BONUS_MODE:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
-# Cibles principales
 all: $(NAME)
 bonus: $(NAME_BONUS)
 
-# Compilation
 $(NAME): $(OBJS_NO_BONUS) $(MLX_LIB)
 	$(CC) $(C_FLAGS) $^ $(MLX_FLAGS) -o $@
 
 $(NAME_BONUS): $(OBJS_BONUS) $(MLX_LIB)
 	$(CC) $(C_FLAGS) -DBONUS_MODE $^ $(MLX_FLAGS) -o $@
 
-# Compilation des .c en .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	$(CC) $(C_FLAGS) -c $< -o $@
 
-# MiniLibX
 $(MLX_LIB):
 	$(MAKE) -C $(MLX_DIR)
 
-# Nettoyage
 clean:
 	$(RM) $(OBJ_DIR)
 
@@ -75,7 +72,6 @@ re: fclean all
 
 include mk/targets.mk
 
-# Dépendances automatiques
 -include $(OBJS_NO_BONUS:.o=.d)
 -include $(OBJS_BONUS:.o=.d)
 

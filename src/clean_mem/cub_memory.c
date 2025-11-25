@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:35:45 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/20 16:00:09 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/25 16:55:07 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ void	cub_free_null(void **ptr)
 // free only m->mlx nothing else
 static void	cub_free_image_window_mlx(t_cub *m)
 {
+	if (m->texture[FACE_NORTH].img)
+		mlx_destroy_image(m->mlx, m->texture[FACE_NORTH].img);
+	if (m->texture[FACE_WEST].img)
+		mlx_destroy_image(m->mlx, m->texture[FACE_WEST].img);
+	if (m->texture[FACE_SOUTH].img)
+		mlx_destroy_image(m->mlx, m->texture[FACE_SOUTH].img);
+	if (m->texture[FACE_EAST].img)
+		mlx_destroy_image(m->mlx, m->texture[FACE_EAST].img);
 	if (m->mlx && m->image)
 		mlx_destroy_image(m->mlx, m->image);
 	if (m->mlx && m->window)
@@ -86,6 +94,13 @@ void	cub_free_all(t_cub **m)
 	cub_free_null((void **)&(*m)->cylinder);
 	cub_free_image_window_mlx(*m);
 	// TODO cub_free_null((void **) &((*m)->points));
+
+	// cub_free_null((void **)&(*m)->file_texture[FACE_NORTH]);
+	// cub_free_null((void **)&(*m)->file_texture[FACE_WEST]);
+	// cub_free_null((void **)&(*m)->file_texture[FACE_SOUTH]);
+	// cub_free_null((void **)&(*m)->file_texture[FACE_EAST]);
+
+
 	cub_free_null((void **) m);
 }
 
