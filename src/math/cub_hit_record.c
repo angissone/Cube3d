@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 14:54:53 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:53:44 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		rec->t = (t.side_dist.x - t.delta_dist.x);
 	else
 		rec->t = (t.side_dist.y - t.delta_dist.y);
-	rec->p = vec3_add(r.origin, vec3_scale(r.dir, rec->t));
+	rec->p = ray_at(r, rec->t);
 	if (t.side == SIDE_VERTICAL)
 		rec->texture_x = m->texture->w * (rec->p.y - floor(rec->p.y));
 	else
