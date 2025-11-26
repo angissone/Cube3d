@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/24 17:58:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/26 15:37:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,6 @@ typedef struct s_cub
 	t_hit_record		rec;
 	t_interval			inter;
 	unsigned int		seed;
-	// int					fd_rt_file;
-	// char				*rt_file_line;
-	// char				**rt_file_line_tokens;
-	// char				**ambient_rgb_tokens;
-	// char				**camera_center_xyz_tokens;
-	// char				**camera_axis_xyz_tokens;
-	// char				**light_xyz_tokens;
-	// char				**sphere_xyz_tokens;
-	// char				**sphere_rgb_tokens;
-	// char				**plane_xyz_tokens;
-	// char				**plane_normal_tokens;
-	// char				**plane_rgb_tokens;
-	// char				**cylinder_xyz_tokens;
-	// char				**cylinder_axis_tokens;
-	// char				**cylinder_rgb_tokens;
 	char				**map;
 	int					map_width;
 	int					map_height;
