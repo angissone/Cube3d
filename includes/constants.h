@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 16:25:09 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 17:11:15 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define EPSILON_MUR .2
 # define V_POINT 0
 # define V_VECTOR 1
-# define MOVE_STEP .02
-# define ANGLE_STEP .02
+# define MOVE_STEP .01
+# define ANGLE_STEP .01
 # define ANGLE_MOUSE .015
 # define HIT_0 0
 # define HIT_1 1
