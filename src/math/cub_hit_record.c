@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 13:48:40 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:59:47 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	set_delta_dist(t_cub_hit_record *t, const t_ray *r)
 		t->delta_dist.y = fabs(1.0 / r->dir.y);
 	else
 		t->delta_dist.y = MAX_DOUBLE;
+	// cub_print_var_d("X", t->delta_dist.x );
+	// cub_print_var_d("Y", t->delta_dist.y );
 }
 
 static void	set_step_side_dist(t_cub_hit_record *t, const t_ray *r)

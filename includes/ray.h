@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:57:47 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/21 15:59:56 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:03:29 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ typedef struct s_hit_record
 	t_vec3	p;
 	t_vec3	normal;
 	double	t;
-	t_face		face;
+	t_face	face;
 	int		line_height;
 	int		draw_begin;
 	int		draw_end;
-	int 	texture_x;
+	int		texture_x;
 }	t_hit_record;
 
 t_vec3	ray_at(t_ray ray, double t);

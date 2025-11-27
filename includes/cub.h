@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 15:37:18 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:22:29 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct s_cub
 	char				player_dir_start;
 	t_img				texture[4];
 	t_vec2				mouse;
+	int 				key[256];
 }	t_cub;
 
 #endif

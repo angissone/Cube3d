@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 13:49:59 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:25:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define HELP "-h"
 # define ON_DESTROY 17
 # define KEY_PRESS 2
+# define KEY_RELEASE 3
+# define MOUSE_MOUSE 6
 # define KEY_PRESS_MASK 1
 # define FREE_STASH -1
 # define MAX_DOUBLE	1e+30
@@ -82,12 +84,12 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define PI 3.14159265358979323846
 # define CAMERA_MAX_DEPTH 10
 # define VERY_LITTLE 0.001f
-# define EPSILON .01
-# define EPSILON_2 .005
+# define EPSILON .001
+# define EPSILON_MUR .2
 # define V_POINT 0
 # define V_VECTOR 1
-# define MOVE_STEP .05
-# define ANGLE_STEP .15
+# define MOVE_STEP .02
+# define ANGLE_STEP .02
 # define ANGLE_MOUSE .015
 # define HIT_0 0
 # define HIT_1 1
@@ -97,5 +99,20 @@ Example : cy 50.0,0.0,20.6 0.0,0.0,1.0 14.2 21.42 10,0,255\n"
 # define SIDE_HORIZONTAL 1
 # define SHADE_RATIO 0.05
 # define SCREEN_RATIO 2
+
+typedef enum	e_keys
+{
+	KEY_NONE = 0,
+	KEY_ESC,
+	KEY_W,
+	KEY_A,
+	KEY_S,
+	KEY_D,
+	KEY_LEFT,
+	KEY_RIGHT,
+	KEY_UP,
+	KEY_DOWN,
+	KEY_I,
+}	t_keys;
 
 #endif

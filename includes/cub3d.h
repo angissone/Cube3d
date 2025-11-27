@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 14:11:11 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 15:34:42 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,9 @@ void		cub_print_color(char *s, t_vec3 v);
 void		cub_do_hook_key(t_cub *m, int keycode);
 void		cub_init_texture(t_cub *m);
 void		cub_do_hook_mouse(t_cub *m, int x, int y);
+void		cub_do_hook_key_2(t_cub *m);
+int			cub_hook_key_pressed(int keycode, void *param);
+int			cub_hook_key_released(int keycode, void *param);
+int			get_key(int k);
 
 #endif
