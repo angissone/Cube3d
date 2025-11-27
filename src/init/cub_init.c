@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 16:58:32 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 18:57:17 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	cub_basic_init(t_cub **m)
 	angle = 90;
 	(*m)->camera.fov_angle = angle;
 	(*m)->player.x = 2 + EPSILON;
-	(*m)->player.y = 2+ EPSILON;
+	(*m)->player.y = 2 + EPSILON;
 	(*m)->player_dir.x = 0;
 	(*m)->player_dir.y = 1;
 	(*m)->file_texture[FACE_NORTH] = "test_files/fn.xpm";

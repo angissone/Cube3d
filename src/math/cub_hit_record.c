@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 15:59:47 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/27 19:09:50 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,15 +82,36 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 
 	set_delta_dist(&t, &r);
 	set_step_side_dist(&t, &r);
+
 	while (1)
 	{
 		set_rec_face(&t, rec);
+
+// if (m->map[t.lig][t.col] == CHAR_1)
+// {
+//     // Move to the next DDA step immediately
+//     if (t.side_dist.x < t.side_dist.y)
+//         t.side_dist.x += t.delta_dist.x, t.col += t.step.x;
+//     else
+//         t.side_dist.y += t.delta_dist.y, t.lig += t.step.y;
+// }
+
 		if (t.col < 0 || t.col >= m->map_width \
 			|| t.lig < 0 || t.lig >= m->map_height)
 			return (false);
-		if (m->map[t.lig][t.col] == CHAR_1)
+
+    double t_next;
+	double MIN_DIST = 0.1;
+    if (t.side == SIDE_VERTICAL)
+        t_next = t.side_dist.x - t.delta_dist.x;
+    else
+        t_next = t.side_dist.y - t.delta_dist.y;
+
+
+		if (m->map[t.lig][t.col] == CHAR_1 && t_next >= MIN_DIST)
 			break ;
 	}
+
 	if (t.side == SIDE_VERTICAL)
 		rec->t = (t.side_dist.x - t.delta_dist.x);
 	else
