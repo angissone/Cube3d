@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:04:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:10:16 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	cub_do_hook_key_2(t_cub *m)
 		m->player_dir = cub_rotate_xy(m, m->player_dir, ANGLE_STEP);
 	if (m->key[KEY_RIGHT])
 		m->player_dir = cub_rotate_xy(m, m->player_dir, -ANGLE_STEP);
-	if (m->key[KEY_EXTRA1])
+	if (m->key[KEY_EXTRA1] && DEBUG)
 		m->camera.fov_angle++;
-	if (m->key[KEY_EXTRA2])
+	if (m->key[KEY_EXTRA2] && DEBUG)
 		m->camera.fov_angle--;
 	if (m->key[KEY_I])
 		cub_debug_camera(m);
