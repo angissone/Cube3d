@@ -6,21 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:49:17 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 19:36:45 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:04:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	cub_hook_key(int keycode, void *param)
-{
-	t_cub	*m;
-
-	m = (t_cub *)param;
-	if (m->mlx)
-		cub_do_hook_key(m, keycode);
-	return (0);
-}
 
 int	cub_mouse_hook(int x, int y, void *param)
 {
@@ -40,7 +30,6 @@ int	cub_render_hook(void *param)
 
 	m = (t_cub *)param;
 	m->seed = 10;
-	//cub_clear_window(m, COLOR_BLACK);
 	cub_do_hook_key_2(m);
 	cub_render(m);
 	mlx_put_image_to_window(m->mlx, m->window, m->image, 0, 0);

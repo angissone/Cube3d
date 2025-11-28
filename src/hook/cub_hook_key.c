@@ -6,52 +6,28 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 16:42:41 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 17:53:38 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:04:34 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	cub_do_hook_key(t_cub *m, int keycode)
-{
-	if (keycode == XK_Escape)
-		mlx_loop_end(m->mlx);
-	if (keycode == XK_a)
-		cub_move_side(m, &m->player, m->player_dir, -MOVE_STEP);
-	if (keycode == XK_d)
-		cub_move_side(m, &m->player, m->player_dir, MOVE_STEP);
-	if (keycode == XK_w)
-		cub_move_forward(m, &m->player, m->player_dir, MOVE_STEP);
-	if (keycode == XK_s)
-		cub_move_forward(m, &m->player, m->player_dir, -MOVE_STEP);
-	if (keycode == XK_Left)
-		m->player_dir = cub_rotate_xy(m, m->player_dir, -ANGLE_STEP);
-	if (keycode == XK_Right)
-		m->player_dir = cub_rotate_xy(m, m->player_dir, ANGLE_STEP);
-	if (keycode == XK_Up)
-		m->camera.fov_angle++;
-	if (keycode == XK_Down)
-		m->camera.fov_angle--;
-	if (keycode == XK_i)
-		cub_debug_camera(m);
-}
 
 void	cub_do_hook_key_2(t_cub *m)
 {
 	if (m->key[KEY_ESC])
 		mlx_loop_end(m->mlx);
 	if (m->key[KEY_A])
-		cub_move_side(m, &m->player, m->player_dir, -MOVE_STEP);
-	if (m->key[KEY_D])
 		cub_move_side(m, &m->player, m->player_dir, MOVE_STEP);
+	if (m->key[KEY_D])
+		cub_move_side(m, &m->player, m->player_dir, -MOVE_STEP);
 	if (m->key[KEY_W])
 		cub_move_forward(m, &m->player, m->player_dir, MOVE_STEP);
 	if (m->key[KEY_S])
 		cub_move_forward(m, &m->player, m->player_dir, -MOVE_STEP);
 	if (m->key[KEY_LEFT])
-		m->player_dir = cub_rotate_xy(m, m->player_dir, -ANGLE_STEP);
-	if (m->key[KEY_RIGHT])
 		m->player_dir = cub_rotate_xy(m, m->player_dir, ANGLE_STEP);
+	if (m->key[KEY_RIGHT])
+		m->player_dir = cub_rotate_xy(m, m->player_dir, -ANGLE_STEP);
 	if (m->key[KEY_EXTRA1])
 		m->camera.fov_angle++;
 	if (m->key[KEY_EXTRA2])

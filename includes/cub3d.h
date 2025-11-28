@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 15:34:42 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 13:02:30 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void		cub_pexit(char *message, t_cub *m);
 void		cub_free_null(void **ptr);
 void		cub_free_all(t_cub **m);
 void		cub_free_mat(char **mat, int n);
-void		cub_free_tokens(char ***tokens);
 void		cub_clear_window(t_cub *m, int color);
 void		cub_draw_window(t_cub *m);
 void		cub_init(t_cub **m, char *filepath);
@@ -56,7 +55,6 @@ void		cub_debug_camera(t_cub *m);
 double		random_double(t_cub *m);
 double		random_double_range(t_cub *m, double min, double max);
 void		cub_print_color(char *s, t_vec3 v);
-void		cub_do_hook_key(t_cub *m, int keycode);
 void		cub_init_texture(t_cub *m);
 void		cub_do_hook_mouse(t_cub *m, int x, int y);
 void		cub_do_hook_key_2(t_cub *m);
