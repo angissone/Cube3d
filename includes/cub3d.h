@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:33:26 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 17:55:33 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CUB3D_H
 
 # include "vec3.h"
-# include "color.h"
 # include "vertex.h"
 # include "cub.h"
 # include "math.h"
@@ -32,6 +31,9 @@
 // # include <stdbool.h>
 # include <stddef.h>
 # include <X11/keysym.h>
+# include <sys/time.h>
+
+
 
 int			cub_render_hook(void *param);
 int			cub_mouse_hook(int x, int y, void *param);

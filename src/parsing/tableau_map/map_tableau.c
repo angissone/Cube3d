@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   map_tableau.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:35:53 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:22:18 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "cub3d.h"
 
 void	take_in_table(t_node **liste_map, t_info_cub *t_info_line)
 {

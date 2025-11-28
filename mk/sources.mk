@@ -6,7 +6,7 @@
 #    By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 15:02:12 by ybouroga          #+#    #+#              #
-#    Updated: 2025/11/27 14:15:03 by ybouroga         ###   ########.fr        #
+#    Updated: 2025/11/28 17:09:36 by ybouroga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,18 @@ SRCS_COMMON = \
   $(SRC_DIR)/get_next_line/get_next_line_utils.c \
   $(SRC_DIR)/hook/cub_hook_key.c \
   $(SRC_DIR)/init/cub_init_texture.c \
+  $(SRC_DIR)/parsing/parsing_main/parsing.c \
+  $(SRC_DIR)/parsing/divers/exit.c \
+  $(SRC_DIR)/parsing/divers/divers.c \
+  $(SRC_DIR)/parsing/divers/gnl.c \
+  $(SRC_DIR)/parsing/verif_information_cub/verif_line.c \
+  $(SRC_DIR)/parsing/verif_information_cub/verif_color/take_info_color.c \
+  $(SRC_DIR)/parsing/verif_information_cub/verif_file/take_info_file.c \
+  $(SRC_DIR)/parsing/verif_information_cub/verif_map/check_map.c \
+  $(SRC_DIR)/parsing/verif_information_cub/verif_map/list_chaine.c \
+  $(SRC_DIR)/parsing/tableau_map/divers_map.c \
+  $(SRC_DIR)/parsing/tableau_map/map_tableau.c \
+  $(SRC_DIR)/parsing/tableau_map/floot_file_map.c
 
 SRCS_NO_BONUS = \
   $(SRC_DIR)/hook/cub_hook_mouse.c \

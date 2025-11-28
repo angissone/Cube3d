@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:04:39 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:19:50 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:24:44 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "cub3d.h"
 
 int	ft_strlenn(char *s)
 {
@@ -22,35 +23,35 @@ int	ft_strlenn(char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
-{
-	int		i;
-	int		j;
-	int		len;
-	char	*res;
+// char	*ft_strjoin(char *s1, char *s2)
+// {
+// 	int		i;
+// 	int		j;
+// 	int		len;
+// 	char	*res;
 
-	i = 0;
-	j = 0;
-	len = ft_strlenn(s1) + ft_strlenn(s2);
-	res = malloc(len + 1);
-	if (!res)
-	{
-		free(s1);
-		free(s2);
-		return (NULL);
-	}
-	while (s1 && s1[i])
-	{
-		res[i] = s1[i];
-		i++;
-	}
-	while (s2 && s2[j])
-		res[i++] = s2[j++];
-	res[i] = '\0';
-	free(s1);
-	free(s2);
-	return (res);
-}
+// 	i = 0;
+// 	j = 0;
+// 	len = ft_strlenn(s1) + ft_strlenn(s2);
+// 	res = malloc(len + 1);
+// 	if (!res)
+// 	{
+// 		free(s1);
+// 		free(s2);
+// 		return (NULL);
+// 	}
+// 	while (s1 && s1[i])
+// 	{
+// 		res[i] = s1[i];
+// 		i++;
+// 	}
+// 	while (s2 && s2[j])
+// 		res[i++] = s2[j++];
+// 	res[i] = '\0';
+// 	free(s1);
+// 	free(s2);
+// 	return (res);
+// }
 
 char	*ft_strdup_until(char *s, int n)
 {

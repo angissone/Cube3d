@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:44:10 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:19:34 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	writer_error(char *str);
 int		parsing(char *fichier_cub);
 char	*verif_line(char *line, int *who_info, int *index_start);
 char	*verif_start(char *str);
-char	*ft_strdup(char *s);
+// char	*ft_strdup(char *s);
 void	init_t_info_line(t_info_cub *t_info_line);
 void	last_verif(t_info_cub *t_info_line);
 
@@ -85,7 +85,7 @@ void	exit_prog(char *str, t_info_cub *t_info_line);
 
 /* divers utils */
 void	print_struct(t_info_cub *t_info_line);
-int		ft_strlen(char *str);
+// int		ft_strlen(char *str);
 char	*ft_strdup_n(char *str, int debut, int fin);
 char	*get_next_linee(int fd);
 char	*remove_backslash_n(char *line);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   divers.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:16:33 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:20:09 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:31:04 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ void	print_struct(t_info_cub *t_info_line)
 	print_tab(t_info_line->map);
 }
 
-char	*ft_strdup(char *s)
-{
-	int		i;
-	char	*tab;
+// char	*ft_strdup(char *s)
+// {
+// 	int		i;
+// 	char	*tab;
 
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i])
-		i++;
-	tab = malloc((i + 1) * sizeof(char));
-	if (!tab)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		tab[i] = s[i];
-		i++;
-	}
-	tab[i] = '\0';
-	return (tab);
-}
+// 	i = 0;
+// 	if (!s)
+// 		return (NULL);
+// 	while (s[i])
+// 		i++;
+// 	tab = malloc((i + 1) * sizeof(char));
+// 	if (!tab)
+// 		return (NULL);
+// 	i = 0;
+// 	while (s[i])
+// 	{
+// 		tab[i] = s[i];
+// 		i++;
+// 	}
+// 	tab[i] = '\0';
+// 	return (tab);
+// }
 
 char	*remove_backslash_n(char *line)
 {

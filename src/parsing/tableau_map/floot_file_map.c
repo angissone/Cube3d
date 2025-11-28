@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   floot_file_map.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 16:39:16 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:22:34 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "cub3d.h"
 
 static void	find_player(t_info_cub *info, int *py, int *px, int *count)
 {

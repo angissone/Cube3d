@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:00:57 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/24 17:10:53 by zmata            ###   ########.fr       */
+/*   Updated: 2025/11/28 17:47:13 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
+#include "cub3d.h"
 
 int	parsing(char *fichier_cub)
 {
@@ -28,10 +29,13 @@ int	parsing(char *fichier_cub)
 		writer_error("impossible ouvrir le fichier");
 		return (1);
 	}
+
 	line = NULL;
 	line_tmp = NULL;
-	while ((line = get_next_linee(fd)))
+	while ((line = get_next_line(fd)))
 	{
+cub_print_var_d("sssssssssssssssssssssss",1);
+
 		index_start = 0;
 		who_info = 0;
 		line = remove_backslash_n(line);
@@ -87,13 +91,13 @@ int	parsing(char *fichier_cub)
 	return (0);
 }
 
-int	main(int argc, char **argv)
-{
-	if (argc != 2)
-		return (0);
-	parsing(argv[1]);
-	return (0);
-}
+// int	main(int argc, char **argv)
+// {
+// 	if (argc != 2)
+// 		return (0);
+// 	parsing(argv[1]);
+// 	return (0);
+// }
 
 /*
 	TODO :

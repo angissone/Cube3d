@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:16:41 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 18:08:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	cub_basic_init(t_cub **m)
 	(*m)->player.y = (*m)->map_height - 1 - ys + C_0_5;
 	(*m)->player_dir.x = 0;
 	(*m)->player_dir.y = 1;
+
 	(*m)->file_texture[FACE_NORTH] = "test_files/fn.xpm";
 	(*m)->file_texture[FACE_WEST] = "test_files/fw.xpm";
 	(*m)->file_texture[FACE_SOUTH] = "test_files/fs.xpm";
@@ -51,5 +52,6 @@ void	cub_init(t_cub **m, char *filepath)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m);
 	(void)filepath;
+	//parsing(filepath);
 	//cub_parser(m, filepath);
 }
