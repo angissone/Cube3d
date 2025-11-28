@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:37:59 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:25:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@
 typedef struct s_img {
 	void	*img;
 	char	*addr;
-	int	 	bpp;
+	int		bpp;
 	int		size_line;
 	int		endian;
 	int		w;
 	int		h;
-} t_img;
+}	t_img;
 
 typedef struct s_cub
 {
@@ -41,19 +41,10 @@ typedef struct s_cub
 	int					endian;
 	t_ray				ray;
 	t_camera			camera;
-	// t_ambient_light		ambient;
-	// t_light				light;
 	double				viewport_w;
 	double				viewport_h;
 	double				focal_length;
-	// t_sphere			*sphere;
-	// int					nb_sphere;
-	// t_plane				*plane;
-	// int					nb_plane;
-	// t_cylinder			*cylinder;
-	// int					nb_cylinder;
 	t_hit_record		rec;
-	// t_interval			inter;
 	unsigned int		seed;
 	char				**map;
 	int					map_width;
