@@ -6,29 +6,11 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 15:20:48 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:35:10 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-
-void reverse_rows(char **M, int n)
-{
-	char *tmp;
-	int i = 0;
-	int j = n - 1;
-
-	while (i < j)
-	{
-		tmp = M[i];
-		M[i] = M[j];
-		M[j] = tmp;
-		i++;
-		j--;
-	}
-}
-
 
 void	cub_basic_init(t_cub **m)
 {
@@ -43,12 +25,11 @@ void	cub_basic_init(t_cub **m)
 	map[0][0] = '1'; map[0][1] = '1'; map[0][2] = '1'; map[0][3] = '1'; map[0][4] = '1';
 	map[1][0] = '1'; map[1][1] = '1'; map[1][2] = '0'; map[1][3] = '0'; map[1][4] = '1';
 	map[2][0] = '1'; map[2][1] = '0'; map[2][2] = '0'; map[2][3] = '0'; map[2][4] = '1';
-	map[3][0] = '1'; map[3][1] = '0'; map[3][2] = '0'; map[3][3] = '0'; map[3][4] = '1';
+	map[3][0] = '1'; map[3][1] = 'N'; map[3][2] = '0'; map[3][3] = '0'; map[3][4] = '1';
 	map[4][0] = '1'; map[4][1] = '1'; map[4][2] = '1'; map[4][3] = '1'; map[4][4] = '1';
 	(*m)->map = map;
 	(*m)->map_width = 5;
 	(*m)->map_height = 5;
-	//reverse_rows((*m)->map, 5);
 	(*m)->color_ceiling = 0x0000FF;
 	(*m)->color_floor = 0x008000;
 	angle = 90;
