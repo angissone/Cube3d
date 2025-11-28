@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 18:19:58 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 21:49:45 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,12 @@
 # define C_0_5 0.5
 # define V_POINT 0
 # define V_VECTOR 1
-# define MOVE_STEP .06
+# define MOVE_STEP .02
 # define ANGLE_MOUSE .01
 # define CHAR_0 '0'
 # define CHAR_1 '1'
 # define SIDE_VERTICAL 0
 # define SIDE_HORIZONTAL 1
-# define TARGET_FPS 30
 # define SCREEN_RATIO 2
 
 typedef enum e_keys
