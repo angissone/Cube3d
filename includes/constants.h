@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:20:20 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:35:13 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
 # define SIDE_HORIZONTAL 1
 # define SCREEN_RATIO 2
 
-typedef enum	e_keys
+typedef enum e_keys
 {
 	KEY_NONE = 0,
 	KEY_ESC,

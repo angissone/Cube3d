@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:41:29 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 14:17:45 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:32:34 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 typedef struct s_mat4
 {
-	double m[4][4];
-} t_mat4;
+	double	m[4][4];
+}	t_mat4;
 
 t_vec3	mat4_mult_vec3(t_mat4 m, t_vec3 v);
 double	cub_degrees_to_radians(double degrees);
@@ -25,6 +25,5 @@ double	cub_div(double x, double y);
 void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step);
 void	cub_move_side(t_cub *m, t_vec2 *p, t_vec2 dir, double step);
 int		test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir);
-
 
 #endif

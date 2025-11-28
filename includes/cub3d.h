@@ -6,14 +6,13 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:02:30 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:33:26 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "param.h"
 # include "vec3.h"
 # include "color.h"
 # include "vertex.h"
@@ -25,7 +24,6 @@
 # include "ray.h"
 # include "mat4.h"
 # include "camera.h"
-# include "interval.h"
 # include "parser.h"
 # include "cub_hit_record.h"
 # include <unistd.h>
@@ -36,9 +34,8 @@
 # include <X11/keysym.h>
 
 int			cub_render_hook(void *param);
-int			cub_mouse_hook(/*int buton,*/ int x, int y, void *param);
+int			cub_mouse_hook(int x, int y, void *param);
 int			cub_close_window(void *param);
-int			cub_hook_key(int keycode, void *param);
 void		cub_putpixel(t_cub *m, int x, int y, int color);
 void		cub_exit(char *message, t_cub *m);
 void		cub_pexit(char *message, t_cub *m);
@@ -54,7 +51,6 @@ void		cub_print_vec(char *s, t_vec3 v);
 void		cub_debug_camera(t_cub *m);
 double		random_double(t_cub *m);
 double		random_double_range(t_cub *m, double min, double max);
-void		cub_print_color(char *s, t_vec3 v);
 void		cub_init_texture(t_cub *m);
 void		cub_do_hook_mouse(t_cub *m, int x, int y);
 void		cub_do_hook_key_2(t_cub *m);

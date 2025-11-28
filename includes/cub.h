@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:04:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:25:09 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 16:35:35 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "ray.h"
 # include "camera.h"
-# include "lights.h"
 # include "objects.h"
 
 typedef struct s_img {
@@ -58,7 +57,7 @@ typedef struct s_cub
 	char				player_dir_start;
 	t_img				texture[4];
 	t_vec2				mouse;
-	int 				key[256];
+	int					key[256];
 }	t_cub;
 
 #endif
