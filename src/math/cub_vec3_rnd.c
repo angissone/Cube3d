@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 17:25:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/26 15:47:56 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:11:32 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ t_vec3	vec3_rnd_dbl_rng(t_cub *m, double min, double max)
 		random_double_range(m, min, max)));
 }
 
-t_vec3	vec3_rnd_unit(t_cub *m)
-{
-	t_vec3	v;
-	double	lensq;
+// t_vec3	vec3_rnd_unit(t_cub *m)
+// {
+// 	t_vec3	v;
+// 	double	lensq;
 
-	while (true)
-	{
-		v = vec3_rnd_dbl_rng(m, -1, 1);
-		lensq = vec3_sqr_length(v);
-		if (lensq >= C_1_160 && lensq <= 1)
-			return (vec3_scale(v, 1 / sqrt(lensq)));
-	}
-}
+// 	while (true)
+// 	{
+// 		v = vec3_rnd_dbl_rng(m, -1, 1);
+// 		lensq = vec3_sqr_length(v);
+// 		if (lensq >= C_1_160 && lensq <= 1)
+// 			return (vec3_scale(v, 1 / sqrt(lensq)));
+// 	}
+// }
 
 // t_vec3	vec3_rnd_unit(t_cub *m)
 // {

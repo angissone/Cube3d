@@ -6,11 +6,29 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 14:22:37 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:20:48 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+
+void reverse_rows(char **M, int n)
+{
+	char *tmp;
+	int i = 0;
+	int j = n - 1;
+
+	while (i < j)
+	{
+		tmp = M[i];
+		M[i] = M[j];
+		M[j] = tmp;
+		i++;
+		j--;
+	}
+}
+
 
 void	cub_basic_init(t_cub **m)
 {
@@ -30,12 +48,13 @@ void	cub_basic_init(t_cub **m)
 	(*m)->map = map;
 	(*m)->map_width = 5;
 	(*m)->map_height = 5;
+	//reverse_rows((*m)->map, 5);
 	(*m)->color_ceiling = 0x0000FF;
 	(*m)->color_floor = 0x008000;
 	angle = 90;
 	(*m)->camera.fov_angle = angle;
-	(*m)->player.x = 2 + EPSILON;
-	(*m)->player.y = 2 + EPSILON;
+	(*m)->player.x = 3 + EPSILON;
+	(*m)->player.y = 1 + EPSILON;
 	(*m)->player_dir.x = 0;
 	(*m)->player_dir.y = 1;
 	(*m)->file_texture[FACE_NORTH] = "test_files/fn.xpm";

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 12:30:00 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:25:05 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,10 @@ static void	set_rec_face(t_cub_hit_record *t, t_hit_record *rec)
 	}
 }
 
-// calculate_min_dist_before_hide_wall
-// static double	calc_wall(t_cub_hit_record *t)
-// {
-// 	double t_next;
-
-// 	if (t->side == SIDE_VERTICAL)
-// 		t_next = t->side_dist.x - t->delta_dist.x;
-// 	else
-// 		t_next = t->side_dist.y - t->delta_dist.y;
-// 	return (t_next);
-// }
+char get_map(const t_cub *m, int lig, int col)
+{
+	return (m->map[m->map_height - 1 - lig][col]);
+}
 
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 {
@@ -100,7 +93,7 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 		if (t.col < 0 || t.col >= m->map_width \
 			|| t.lig < 0 || t.lig >= m->map_height)
 			return (false);
-		if (m->map[t.lig][t.col] == CHAR_1)
+		if (get_map(m, t.lig, t.col)  == CHAR_1)
 			break ;
 	}
 	if (t.side == SIDE_VERTICAL)

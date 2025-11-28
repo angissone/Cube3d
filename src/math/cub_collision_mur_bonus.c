@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:04:58 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/27 17:58:58 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 15:28:32 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
 		x = _x.v0;
 		while (x <= _x.v1)
 		{
-			if (m->map[y][x] == CHAR_1)
+			if (get_map(m, y, x) == CHAR_1)
 				return (true);
 			x++;
 		}
