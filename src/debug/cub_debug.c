@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:04:54 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 13:48:56 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:18:30 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,23 @@ void	cub_print_vec(char *s, t_vec3 v)
 		printf("[%s][%.2f,%.2f,%.2f]\n", s, v.v[0], v.v[1], v.v[2]);
 }
 
-// void	cub_print_color(char *s, t_vec3 v)
-// {
-// 	if (DEBUG)
-// 		printf("[%s][%f,%f,%f]\n", s, \
-// 			v.v[0] * C_255_999, \
-// 			v.v[1] * C_255_999, \
-// 			v.v[2] * C_255_999);
-// }
+static void	cub_print_player_dir(t_cub *m)
+{
+	if (m->player_dir.y > .5)
+		printf("N");
+	else if (m->player_dir.y < -.5)
+		printf("S");
+	else if (m->player_dir.x < .5)
+		printf("W");
+	else if (m->player_dir.x > .5)
+		printf("E");
+	else
+		printf("X");
+}
 
 static void cub_show_map(t_cub *m)
 {
-	int	col=0;
+	int	col;
 	int	lig;
 
 	lig = 0;
@@ -45,7 +50,7 @@ static void cub_show_map(t_cub *m)
 		while (col < m->map_width)
 		{
 			if ((int)m->player.x == col && (int)m->player.y == lig)
-				printf("x");
+				cub_print_player_dir(m);
 			else
 				printf("%c", m->map[lig][col]);
 			col++;
@@ -53,6 +58,7 @@ static void cub_show_map(t_cub *m)
 		printf("\n");
 		lig++;
 	}
+	printf("[%d][%d][%f][%f]\n", col, lig, m->player.x, m->player.y);
 }
 
 void	cub_debug_camera(t_cub *m)
