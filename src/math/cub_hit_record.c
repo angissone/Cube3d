@@ -76,7 +76,19 @@ static void	set_rec_face(t_cub_hit_record *t, t_hit_record *rec)
 
 char	get_map(const t_cub *m, int lig, int col)
 {
-	return (m->map[m->map_height - 1 - lig][col]);
+	//return (m->map[m->map_height - 1 - lig][col]);
+	int	row;
+	int	len;
+
+	row = m->map_height - 1 - lig;
+	if (row < 0 || row >= m->map_height)
+		return (CHAR_1);
+	if (m->map[row] == NULL)
+		return (CHAR_1);
+	len = ft_strlen(m->map[row]);
+	if (col < 0 || col >= len)
+		return (CHAR_1);
+	return (m->map[row][col]);
 }
 
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)

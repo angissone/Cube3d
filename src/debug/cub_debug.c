@@ -48,7 +48,7 @@ static void	cub_show_map(t_cub *m)
 	while (lig < m->map_height)
 	{
 		col = 0;
-		while (col < m->map_width)
+		while (m->map[lig][col])
 		{
 			py = m->map_height - 1 - (int)m->player.y;
 			if ((int)m->player.x == col && py == lig)
