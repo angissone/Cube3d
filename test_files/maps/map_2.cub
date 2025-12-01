@@ -1,7 +1,7 @@
-NO ./test_files/textures/text.xpm
-SO ./test_files/textures/text.xpm
-WE ./test_files/textures/text.xpm
-EA ./test_files/textures/text.xpm
+NO ./test_files/textures/fn.xpm
+SO ./test_files/textures/fs.xpm
+WE ./test_files/textures/fw.xpm
+EA ./test_files/textures/fe.xpm
 
 C 0,150,200
 F 141,242,158
