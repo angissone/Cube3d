@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 18:17:56 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 18:39:01 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,15 @@ static void	cub_init_map(t_cub **m, t_info_cub c)
 
 	y = 0;
 	while (y < (*m)->map_height)
-		(*m)->map[y++] = ft_calloc((*m)->map_width + 1, sizeof(char));
+	{
+		(*m)->map[y] = ft_calloc((*m)->map_width + 1, sizeof(char));
+		if ((*m)->map[y] == NULL)
+		{
+			free_all(&c);
+			cub_exit(ERROR_CALLOC, *m);
+		}
+		y++;
+	}
 	y = 0;
 	while (y < (*m)->map_height)
 	{

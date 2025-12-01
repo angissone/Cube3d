@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 14:02:15 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 17:06:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 18:35:30 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # define DEBUG 1
 
+# define ERROR_N "Error\n"
 # define ERROR_MLX "Error CUB: Can not instantiate mlx.\n"
 # define ERROR_WINDOW "Error CUB: Can not instantiate window.\n"
 # define ERROR_IMAGE "Error CUB: Can not instantiate image.\n"
 # define ERROR_ADDR "Error CUB: Can not instantiate buffer address.\n"
 # define ERROR_MALLOC "Error CUB: Malloc failed.\n"
+# define ERROR_CALLOC "Error CUB: Calloc failed.\n"
 # define ERROR_ARGV "Error CUB: Expected 1 argument (file path) or -h \
 (for help).\n"
 # define COMMANDS "Quit=esc Move=asdw Rotate=UP/DOWN=\n"
