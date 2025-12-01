@@ -6,102 +6,65 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:04:39 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/28 17:24:44 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 12:52:09 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include "cub3d.h"
 
-int	ft_strlenn(char *s)
+int	fill_buffer(t_gnl_state *st, int fd)
 {
-	int	i;
-
-	i = 0;
-	while (s && s[i])
-		i++;
-	return (i);
+	if (st->index_buffer >= st->nbr_octect_lu)
+	{
+		st->nbr_octect_lu = read(fd, st->buffer, BUFFER_SIZE);
+		st->index_buffer = 0;
+		if (st->nbr_octect_lu <= 0)
+			return (0);
+	}
+	return (1);
 }
 
-// char	*ft_strjoin(char *s1, char *s2)
-// {
-// 	int		i;
-// 	int		j;
-// 	int		len;
-// 	char	*res;
-
-// 	i = 0;
-// 	j = 0;
-// 	len = ft_strlenn(s1) + ft_strlenn(s2);
-// 	res = malloc(len + 1);
-// 	if (!res)
-// 	{
-// 		free(s1);
-// 		free(s2);
-// 		return (NULL);
-// 	}
-// 	while (s1 && s1[i])
-// 	{
-// 		res[i] = s1[i];
-// 		i++;
-// 	}
-// 	while (s2 && s2[j])
-// 		res[i++] = s2[j++];
-// 	res[i] = '\0';
-// 	free(s1);
-// 	free(s2);
-// 	return (res);
-// }
-
-char	*ft_strdup_until(char *s, int n)
+int	read_chunk(t_gnl_state *st, char **line)
 {
-	int		i;
-	char	*res;
+	int		start;
+	char	*chunk;
 
-	i = 0;
-	res = malloc(n + 1);
-	if (!res)
-		return (NULL);
-	while (i < n && s[i])
+	start = st->index_buffer;
+	while (st->index_buffer < st->nbr_octect_lu
+		&& st->buffer[st->index_buffer] != '\n')
+		st->index_buffer++;
+	chunk = ft_strdup_until(&st->buffer[start],
+			st->index_buffer - start);
+	*line = ft_strjoin(*line, chunk);
+	if (st->index_buffer < st->nbr_octect_lu
+		&& st->buffer[st->index_buffer] == '\n')
 	{
-		res[i] = s[i];
-		i++;
+		*line = ft_strjoin(*line, ft_strdup_until("\n", 1));
+		st->index_buffer++;
+		return (1);
 	}
-	res[i] = '\0';
-	return (res);
+	return (0);
 }
 
 char	*get_next_linee(int fd)
 {
-	static char	buffer[BUFFER_SIZE];
-	static int	nbr_octect_lu = 0;
-	static int	index_buffer = 0;
+	t_gnl_state	st;
 	char		*line;
-	char		*chunk;
-	int			start;
+	int			status;
 
-	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	st.nbr_octect_lu = 0;
+	st.index_buffer = 0;
+	line = NULL;
+	status = 0;
 	while (1)
 	{
-		if (index_buffer >= nbr_octect_lu)
-		{
-			nbr_octect_lu = read(fd, buffer, BUFFER_SIZE);
-			index_buffer = 0;
-			if (nbr_octect_lu <= 0)
-				return (line);
-		}
-		start = index_buffer;
-		while (index_buffer < nbr_octect_lu && buffer[index_buffer] != '\n')
-			index_buffer++;
-		chunk = ft_strdup_until(&buffer[start], index_buffer - start);
-		line = ft_strjoin(line, chunk);
-		if (index_buffer < nbr_octect_lu && buffer[index_buffer] == '\n')
-		{
-			line = ft_strjoin(line, ft_strdup_until("\n", 1));
-			index_buffer++;
+		if (!fill_buffer(&st, fd))
 			return (line);
-		}
+		status = read_chunk(&st, &line);
+		if (status == 1)
+			return (line);
 	}
 }
