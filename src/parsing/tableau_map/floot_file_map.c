@@ -6,87 +6,40 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/28 17:22:34 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/01 13:05:31 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 #include "cub3d.h"
 
-static void	find_player(t_info_cub *info, int *py, int *px, int *count)
+static int	flood_check_err(int **vis, int lines)
 {
-	int		y;
-	int		x;
-	char	c;
+	int	y;
+	int	x;
 
 	y = 0;
-	while (y < info->nbr_line_tab)
+	while (y < lines)
 	{
 		x = 0;
-		while (info->map[y][x])
+		while (vis[y][x] != -2)
 		{
-			c = info->map[y][x];
-			if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
-			{
-				*py = y;
-				*px = x;
-				(*count)++;
-			}
+			if (vis[y][x] == -1)
+				return (1);
 			x++;
 		}
 		y++;
 	}
+	return (0);
 }
 
-static void	flood(t_info_cub *info, int y, int x, int **vis, int *err)
+static int	**alloc_visited(t_info_cub *info)
 {
-	int	len;
-
-	if (*err)
-		return ;
-	if (y < 0 || y >= info->nbr_line_tab)
-	{
-		*err = 1;
-		return ;
-	}
-	len = ft_strlen(info->map[y]);
-	if (x < 0 || x >= len)
-	{
-		*err = 1;
-		return ;
-	}
-	if (info->map[y][x] == ' ')
-	{
-		*err = 1;
-		return ;
-	}
-	if (info->map[y][x] == '1' || vis[y][x])
-		return ;
-	vis[y][x] = 1;
-	flood(info, y + 1, x, vis, err);
-	flood(info, y - 1, x, vis, err);
-	flood(info, y, x + 1, vis, err);
-	flood(info, y, x - 1, vis, err);
-}
-
-int	check_map_closed(t_info_cub *info)
-{
-	int		py;
-	int		px;
-	int		count;
-	int		y;
-	int		err;
 	int		**vis;
-	int		i;
+	int		y;
+	int		x;
 	int		len;
 
-	py = -1;
-	px = -1;
-	count = 0;
-	err = 0;
-	find_player(info, &py, &px, &count);
-	if (count != 1)
-		exit_prog("Nombre de joueur invalide", info);
 	vis = malloc(info->nbr_line_tab * sizeof(int *));
 	if (!vis)
 		exit_prog("Erreur malloc visited", info);
@@ -94,26 +47,58 @@ int	check_map_closed(t_info_cub *info)
 	while (y < info->nbr_line_tab)
 	{
 		len = ft_strlen(info->map[y]);
-		vis[y] = malloc(len * sizeof(int));
+		vis[y] = malloc((len + 1) * sizeof(int));
 		if (!vis[y])
 			exit_prog("Erreur malloc visited", info);
-		i = 0;
-		while (i < len)
+		x = 0;
+		while (x < len)
 		{
-			vis[y][i] = 0;
-			i++;
+			vis[y][x] = -2;
+			x++;
 		}
 		y++;
 	}
-	flood(info, py, px, vis, &err);
+	return (vis);
+}
+
+static void	free_visited(int **vis, int lines)
+{
+	int	y;
+
 	y = 0;
-	while (y < info->nbr_line_tab)
+	while (y < lines)
 	{
 		free(vis[y]);
 		y++;
 	}
 	free(vis);
-	if (err)
+}
+
+static void	check_one_player(int count, t_info_cub *info)
+{
+	if (count != 1)
+		exit_prog("Nombre de joueur invalide", info);
+}
+
+int	check_map_closed(t_info_cub *info)
+{
+	int		py;
+	int		px;
+	int		count;
+	int		**vis;
+
+	py = -1;
+	px = -1;
+	count = 0;
+	find_player(info, &py, &px, &count);
+	check_one_player(count, info);
+	vis = alloc_visited(info);
+	flood_step(info, py, px, vis);
+	if (flood_check_err(vis, info->nbr_line_tab))
+	{
+		free_visited(vis, info->nbr_line_tab);
 		exit_prog("Map non fermee", info);
+	}
+	free_visited(vis, info->nbr_line_tab);
 	return (0);
 }
