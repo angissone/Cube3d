@@ -38,7 +38,7 @@ static void	cub_print_player_dir(t_cub *m)
 		printf("X");
 }
 
-static void	cub_show_map(t_cub *m)
+/*static*/ void	cub_show_map(t_cub *m)
 {
 	int	col;
 	int	lig;
@@ -78,7 +78,7 @@ void	cub_debug_camera(t_cub *m)
 		cub_print_var_d("map height       ", m->map_height);
 		cub_print_var_d("texture w        ", m->texture->w);
 		cub_print_var_d("texture h        ", m->texture->h);
-		cub_show_map(m);
+		//cub_show_map(m);
 		printf("\n");
 	}
 }
