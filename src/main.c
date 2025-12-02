@@ -14,7 +14,7 @@
 
 #include "cub3d.h"
 
-void	mrt(char *filepath)
+void	cub(char *filepath)
 {
 	t_cub	*m;
 
@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	if (argc == 2)
 	{
 		if (ft_strcmp(argv[1], HELP))
-			mrt(argv[1]);
+			cub(argv[1]);
 		else
 			printf(COMMANDS);
 	}

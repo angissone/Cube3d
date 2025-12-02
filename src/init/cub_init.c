@@ -119,6 +119,19 @@ static void	cub_basic_init(t_cub **m, t_info_cub c)
 //		(*m)->map_width++;
 //	cub_init_map(m, c);
 	(*m)->map = c.map;
+
+
+(*m)->map_height = 5;
+(*m)->map_width = 5;
+
+(*m)->map = ft_calloc(6, sizeof(char *));
+(*m)->map[0] = ft_strdup("11111");
+(*m)->map[1] = ft_strdup("10001");
+(*m)->map[2] = ft_strdup("10N01");
+(*m)->map[3] = ft_strdup("10001");
+(*m)->map[4] = ft_strdup("11111");
+(*m)->map[5] = NULL; // facultatif mais propre
+
 	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
 	(*m)->color_floor = color_v_to_int(c.floor_color);
 	(*m)->camera.fov_angle = ANGLE_FOV;

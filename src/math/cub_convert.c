@@ -37,13 +37,14 @@ void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 
 	q.x = p->x + dir.x * step;
 	q.y = p->y + dir.y * step;
-	if (q.x < 1 + EPSILON_MUR || \
+	(void)m;
+	/*if (q.x < 1 + EPSILON_MUR || \
 		q.y < 1 + EPSILON_MUR || \
 		q.x >= m->map_width - 1 - EPSILON_MUR || \
 		q.y >= m->map_height - 1 - EPSILON_MUR)
 		return ;
 	if (test_collision_mur(m, &q, dir))
-		return ;
+		return ;*/
 	*p = q;
 }
 
