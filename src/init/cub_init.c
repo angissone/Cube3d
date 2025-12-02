@@ -72,13 +72,13 @@ static void	cub_init_dir_texture(t_cub **m, t_info_cub c)
 		(*m)->player_dir.x = -1;
 		(*m)->player_dir.y = 0;
 	}
-	(*m)->file_texture[FACE_NORTH] = ft_strdup(c.nort_texture);
-	(*m)->file_texture[FACE_WEST] = ft_strdup(c.west_texture);
-	(*m)->file_texture[FACE_SOUTH] = ft_strdup(c.south_texture);
-	(*m)->file_texture[FACE_EAST] = ft_strdup(c.east_texture);
+	(*m)->file_texture[FACE_NORTH] = (c.nort_texture);
+	(*m)->file_texture[FACE_WEST] = (c.west_texture);
+	(*m)->file_texture[FACE_SOUTH] = (c.south_texture);
+	(*m)->file_texture[FACE_EAST] = (c.east_texture);
 }
 
-static void	cub_init_map(t_cub **m, t_info_cub c)
+ void	cub_init_map(t_cub **m, t_info_cub c)
 {
 	int		x;
 	int		y;
@@ -109,14 +109,16 @@ static void	cub_init_map(t_cub **m, t_info_cub c)
 
 static void	cub_basic_init(t_cub **m, t_info_cub c)
 {
-	(*m)->map = ft_calloc(c.nbr_line_tab + 1, sizeof(char *));
-	if ((*m)->map == NULL)
-		free_all(&c);
-	(*m)->map_width = 0;
+	//(*m)->map = ft_calloc(c.nbr_line_tab + 1, sizeof(char *));
+	//if ((*m)->map == NULL)
+	//	free_all(&c);
+	(*m)->map_width = 100;
 	(*m)->map_height = c.nbr_line_tab;
-	while (c.map[0][(*m)->map_width])
-		(*m)->map_width++;
-	cub_init_map(m, c);
+	//while (c.map[0][(*m)->map_width])
+	//	(*m)->map_width++;
+	//cub_init_map(m, c);
+	(*m)->map = c.map;
+	
 	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
 	(*m)->color_floor = color_v_to_int(c.floor_color);
 	(*m)->camera.fov_angle = ANGLE_FOV;
@@ -134,5 +136,7 @@ void	cub_init(t_cub **m, char *filepath)
 	if (*m == NULL)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m, t_info_line);
-	free_all(&t_info_line);
+	free_list(t_info_line.liste_map);
+	//free_tab(t_info_line.map);
+
 }
