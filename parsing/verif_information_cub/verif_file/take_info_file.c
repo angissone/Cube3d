@@ -6,7 +6,7 @@
 /*   By: zmata <zmata@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:46 by zmata             #+#    #+#             */
-/*   Updated: 2025/11/26 10:13:23 by zmata            ###   ########.fr       */
+/*   Updated: 2025/12/03 11:19:03 by zmata            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ char	*verif_empty_file(char *line, int *index_start)
 		(*index_start)++;
 	line_temp = ft_strdup_n(line, index_start_temp, *index_start);
 	fd = open(line_temp, O_RDONLY);
-	if (fd == -1)
+	if ((fd == -1) || (line[ft_strlen(line) -1] != 'm'
+			|| line[ft_strlen(line) -2] != 'p'
+			|| line[ft_strlen(line) -3] != 'x'
+			|| line[ft_strlen(line) -4] != '.' || ft_strlen(line) <= 4))
 	{
 		free(line_temp);
 		return (NULL);

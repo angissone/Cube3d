@@ -1,6 +1,6 @@
 # ************ CONFIG ************
 
-NAME    := parsing
+NAME    := Cube3D
 
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror -g
