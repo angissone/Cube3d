@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:40:39 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:22:25 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:58:04 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,11 @@ static void	set_rec_face(t_cub_hit_record *t, t_hit_record *rec)
 	}
 }
 
-
-
+/*if (t.col < 0 || t.col >= m->map_width \
+	|| t.lig < 0 || t.lig >= m->map_height)
+	return (false);*/
+/*if (is_inside_map(m, t.lig, t.col) == false)
+	return (false);*/
 bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 {
 	t_cub_hit_record	t;
@@ -85,11 +88,6 @@ bool	cub_hit_grid(const t_cub *m, const t_ray r, t_hit_record *rec)
 	while (1)
 	{
 		set_rec_face(&t, rec);
-		/*if (t.col < 0 || t.col >= m->map_width \
-			|| t.lig < 0 || t.lig >= m->map_height)
-			return (false);*/
-		/*if (is_inside_map(m, t.lig, t.col) == false)
-			return (false);*/
 		if (get_map(m, t.lig, t.col) == CHAR_1)
 			break ;
 	}

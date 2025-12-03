@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:06:38 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 16:19:20 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:58:58 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void	cub_move_forward(t_cub *m, t_vec2 *p, t_vec2 dir, double step)
 	q.x = p->x + dir.x * step;
 	q.y = p->y + dir.y * step;
 	(void)m;
-	/*if (q.x < 1 + EPSILON_MUR || \
-		q.y < 1 + EPSILON_MUR || \
-		q.x >= m->map_width - 1 - EPSILON_MUR || \
-		q.y >= m->map_height - 1 - EPSILON_MUR)
-		return ;*/
 	if (is_inside_map(m, (int)floor(q.y), (int)floor(q.x)) == false)
 		return ;
 	if (test_collision_mur(m, &q, dir))

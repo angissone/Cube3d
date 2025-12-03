@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/03 13:44:15 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:47:50 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,6 @@ static void	cub_basic_init(t_cub **m, t_info_cub c)
 {
 	(*m)->map_height = c.nbr_line_tab;
 	(*m)->map = c.map;
-
-
 	(*m)->color_ceiling = color_v_to_int(c.ceiling_color);
 	(*m)->color_floor = color_v_to_int(c.floor_color);
 	(*m)->camera.fov_angle = ANGLE_FOV;
@@ -132,5 +130,4 @@ void	cub_init(t_cub **m, char *filepath)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m, t_info_line);
 	free_list(t_info_line.liste_map);
-	//free_tab(t_info_line->map);
 }

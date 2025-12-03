@@ -6,13 +6,13 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 14:04:58 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/11/28 15:28:32 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:55:15 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
+int	test_collision_mur_(t_cub *m, t_vec2 *q, t_vec2 dir)
 {
 	t_dim2	_x;
 	t_dim2	_y;
@@ -20,10 +20,10 @@ int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
 	int		y;
 
 	(void)dir;
-	_x.v0 = (int)(q->x + 00*EPSILON_MUR);
-	_x.v1 = (int)(q->x + 00*EPSILON_MUR);
-	_y.v0 = (int)(q->y + 00*EPSILON_MUR);
-	_y.v1 = (int)(q->y + 00*EPSILON_MUR);
+	_x.v0 = (int)(q->x + 00 * EPSILON_MUR);
+	_x.v1 = (int)(q->x + 00 * EPSILON_MUR);
+	_y.v0 = (int)(q->y + 00 * EPSILON_MUR);
+	_y.v1 = (int)(q->y + 00 * EPSILON_MUR);
 	y = _y.v0;
 	while (y <= _y.v1)
 	{
@@ -37,4 +37,10 @@ int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
 		y++;
 	}
 	return (false);
+}
+
+int	test_collision_mur(t_cub *m, t_vec2 *q, t_vec2 dir)
+{
+	(void)dir;
+	return (get_map(m, (int)floor(q->y), (int)floor(q->x)) == CHAR_1);
 }
