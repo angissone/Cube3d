@@ -1,4 +1,4 @@
-NO ./test_files/textures/fn1.xpm
+NO ./test_files/textures/fn.xpm
 SO ./test_files/textures/fs.xpm
 WE ./test_files/textures/fw.xpm
 EA ./test_files/textures/fe.xpm

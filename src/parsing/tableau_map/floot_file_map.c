@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:10 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/03 16:56:30 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 17:06:08 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int	check_map_closed(t_info_cub *info)
 	count = 0;
 	find_player(info, &py, &px, &count);
 	if (count != 1)
-		(MSG_009, info);
+		exit_prog(MSG_009, info);
 	f.err = 0;
 	f.vis = alloc_visited(info);
 	flood(info, py, px, &f);
