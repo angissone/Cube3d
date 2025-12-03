@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:29:40 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 16:43:21 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:13:43 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@
 # include <stddef.h>
 # include <X11/keysym.h>
 # include <sys/time.h>
-
-
 
 int			cub_render_hook(void *param);
 int			cub_mouse_hook(int x, int y, void *param);

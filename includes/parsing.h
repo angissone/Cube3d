@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:01:04 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 17:49:35 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:30:29 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,26 +53,26 @@ typedef struct s_info_cub
 }	t_info_cub;
 
 /* parsing / main */
-void		writer_error(char *str);
-t_info_cub	parsing(char *fichier_cub);
-char		*verif_line(char *line, int *who_info, int *index_start);
-char		*verif_start(char *str);
-char		*ft_strdup_z(char *s);
-void		init_t_info_line(t_info_cub *t_info_line);
-void		last_verif(t_info_cub *t_info_line);
+void	writer_error(char *str);
+void	parsing(char *fichier_cub, t_info_cub	*t_info_line);
+char	*verif_line(char *line, int *who_info, int *index_start);
+char	*verif_start(char *str);
+char	*ft_strdup_z(char *s);
+void	init_t_info_line(t_info_cub *t_info_line);
+void	last_verif(t_info_cub *t_info_line);
 
 /* parsing_loop */
 void	handle_map_line(char *line, t_info_cub *info);
-void	handle_info_line(char *line,
-			int who_info, int *index_start, t_info_cub *info);
+void	handle_info_line(char *line, \
+		int who_info, int *index_start, t_info_cub *info);
 void	process_non_empty(char *line, t_info_cub *info);
 void	process_line(char *line, t_info_cub *info);
 void	parsing_loop(int fd, t_info_cub *info);
 
 /* verif_color */
-void	take_info_color(char *line, int *who_info, int *index_start,
+void	take_info_color(char *line, int *who_info, int *index_start, \
 			t_info_cub *t_info_line);
-void	verif_empty_color(char *line, int *index_start, int *who_info,
+void	verif_empty_color(char *line, int *index_start, int *who_info, \
 			t_info_cub *t_info_line);
 int		is_digit(char c);
 int		is_valid(char *str, int *i);
@@ -82,9 +82,9 @@ void	color_error(char *line, char *tmp, t_info_cub *info);
 /* verif_file */
 int		cut_space(char *str, int *index_start);
 char	*verif_empty_file(char *line, int *index_start);
-void	take_info_file(char **line, int *who_info, int *index_start,
-			t_info_cub *t_info_line);
-void	set_texture(char **texture, char *path,
+void	take_info_file(char **line, int *who_info, int *index_start, \
+				t_info_cub *t_info_line);
+void	set_texture(char **texture, char *path, \
 			char **line, t_info_cub *t_info_line);
 
 /* verif_map */
@@ -123,6 +123,5 @@ void	print_tab(char **tab);
 void	free_tab(char **tab);
 
 void	free_all(t_info_cub *t_info_line);
-
 
 #endif

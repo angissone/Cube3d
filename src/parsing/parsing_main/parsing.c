@@ -6,33 +6,32 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 16:00:57 by zmata             #+#    #+#             */
-/*   Updated: 2025/12/01 16:14:03 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:25:22 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-t_info_cub	parsing(char *fichier_cub)
+void	parsing(char *fichier_cub, t_info_cub	*t_info_line)
 {
 	int			fd;
-	t_info_cub	t_info_line;
+	//t_info_cub	t_info_line;
 
-	init_t_info_line(&t_info_line);
+	init_t_info_line(t_info_line);
 	fd = open(fichier_cub, O_RDONLY);
 	if (fd == -1)
-		exit_prog("impossible ouvrir le fichier", &t_info_line);
+		exit_prog("impossible ouvrir le fichier", t_info_line);
 	// {
 	// 	writer_error("impossible ouvrir le fichier");
 	// 	return (t_info_line);
 	// }
-	parsing_loop(fd, &t_info_line);
+	parsing_loop(fd, t_info_line);
 	close(fd);
-	take_in_table(&t_info_line.liste_map, &t_info_line);
-	last_verif(&t_info_line);
-	check_map_closed(&t_info_line);
-	print_struct(&t_info_line);
+	take_in_table(&t_info_line->liste_map, t_info_line);
+	last_verif(t_info_line);
+	check_map_closed(t_info_line);
+	print_struct(t_info_line);
 	//exit_prog("Fin du programme tous va bien !", &t_info_line);
-	return (t_info_line);
 }
 
 // int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: ybouroga <ybouroga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:20:22 by ybouroga          #+#    #+#             */
-/*   Updated: 2025/12/01 18:39:01 by ybouroga         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:22:20 by ybouroga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,15 +145,11 @@ void	cub_init(t_cub **m, char *filepath)
 {
 	t_info_cub	t_info_line;
 
-	t_info_line = parsing(filepath);
+	parsing(filepath, &t_info_line);
 	*m = ft_calloc(1, sizeof(t_cub));
 	if (*m == NULL)
 		cub_exit(ERROR_MALLOC, *m);
 	cub_basic_init(m, t_info_line);
-	//free(t_info_line.nort_texture);
-	//free(t_info_line.south_texture);
-	//free(t_info_line.east_texture);
-	//free(t_info_line.west_texture);
 	free_list(t_info_line.liste_map);
 	//free_tab(t_info_line->map);
 }
